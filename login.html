@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Church of Christ - Member Directory Login</title>
+  <meta name="description" content="Secure portal login for Church of Christ believers to access the member directory and confidential assembly data.">
+  <link rel="stylesheet" href="css/style.css?v=1.3">
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
+</head>
+<body class="fade-in">
+
+  <!-- GLOBAL HEADER -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo-wrapper">
+        <a href="index.html" class="logo" id="header-logo">
+          <div class="logo-text-wrapper">
+            <span class="logo-main">Church of Christ</span>
+            <span class="logo-tagline">Kumaran Nagar, Chennai</span>
+          </div>
+        </a>
+      </div>
+      
+      
+      
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="sundayschool.html" class="nav-link">Sunday School</a></li>
+        <li><a href="media.html" class="nav-link">Media</a></li>
+        <li class="nav-item-dropdown">
+          <a href="javascript:void(0)" class="nav-link" style="cursor: default;">Song Book</a>
+          <ul class="dropdown-menu">
+            <li><a href="songbook.html?lang=tamil" class="dropdown-item">Tamil Songs</a></li>
+            <li><a href="songbook.html?lang=english" class="dropdown-item">English Songs</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        <li class="nav-live-wrapper" style="margin-left: 10px;"><a href="live.html" class="nav-link nav-link-live"><span class="live-dot-pulse"></span>Watch Live</a></li>
+        <li class="nav-btn mobile-only"><a href="login.html" class="btn btn-secondary btn-sm active" id="member-portal-nav-btn-mobile">Member Portal</a></li>
+      </ul>
+      
+      <div class="nav-right-area">
+        <div class="nav-action desktop-only">
+        <a href="login.html" class="btn btn-secondary btn-sm active" id="member-portal-nav-btn">Member Portal</a>
+      </div>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <svg class="theme-icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+          <svg class="theme-icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+          </svg>
+        </button>
+        <button class="mobile-toggle" aria-label="Toggle menu" id="menu-toggle-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- LOGIN SECTION -->
+  <section class="login-section">
+    <div class="login-card">
+      <div class="login-header">
+        <span class="badge">Secure Access</span>
+        <h2>Member Directory Login</h2>
+        <p>Enter your credentials to access the confidential believer and family directory.</p>
+      </div>
+
+      <!-- Error Message Area -->
+      <div id="login-error-msg" style="display: none; padding: 12px; background-color: #fff1f0; border: 1px solid #ffa39e; border-radius: var(--border-radius-sm); color: #cf1322; font-size: 0.85rem; margin-bottom: 20px; text-align: left;"></div>
+
+      <form id="member-login-form">
+        <!-- Email -->
+        <div class="form-group">
+          <label for="login-email" class="form-label">Email Address</label>
+          <input type="email" id="login-email" class="form-input" placeholder="e.g. member@coc.org" required value="member@coc.org">
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="login-password" class="form-label">Password</label>
+          <input type="password" id="login-password" class="form-input" placeholder="••••••••" required value="password123">
+        </div>
+
+        <!-- Hint Banner -->
+        <div style="background-color: var(--bg-secondary); padding: 12px; border-radius: var(--border-radius-sm); font-size: 0.8rem; margin-bottom: 24px; border: 1px solid var(--border-color); text-align: left;">
+          <strong>Demo Access Hint:</strong><br>
+          Email: <code style="color: var(--text-primary);">member@coc.org</code><br>
+          Password: <code style="color: var(--text-primary);">password123</code>
+        </div>
+
+        <button type="submit" class="btn btn-primary login-btn">Login to Directory</button>
+      </form>
+
+      <p class="login-footer-text">
+        Need assistance or forgotten your credentials? Please contact Sis. Hannah Solomon or the media desk.
+      </p>
+    </div>
+  </section>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <a href="index.html" class="footer-logo">Church of Christ</a>
+        <p>A congregation established directly from the scriptures, serving Kumaran Nagar and surrounding communities.</p>
+      </div>
+      
+      <div>
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="sundayschool.html">Sunday School</a></li>
+          <li><a href="media.html">Media & Resources</a></li>
+          <li><a href="songbook.html">Song Book</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="live.html">Watch Live</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Member Area</h4>
+        <ul class="footer-links">
+          <li><a href="login.html">Member Directory</a></li>
+          <li><a href="login.html">Portal Login</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Contact</h4>
+        <ul class="footer-contact-info">
+          <li>
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            <span>Kumaran Nagar, Chennai, Tamil Nadu, India</span>
+          </li>
+          <li>
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8m-2 11a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h12a2 2 0 012 2v11z"></path>
+            </svg>
+            <span>info@churchofchristkumaranagar.org</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Church of Christ (Kumaran Nagar). All rights reserved.</p>
+      <p>Rooted in scripture, built on faith.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=1.2"></script>
+</body>
+</html>

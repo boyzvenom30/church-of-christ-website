@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Church of Christ - About Us</title>
+  <meta name="description" content="Learn about our faith, doctrine, history, mentors, and local mission works at Church of Christ in Kumaran Nagar.">
+  <link rel="stylesheet" href="css/style.css?v=1.3">
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
+</head>
+<body class="fade-in">
+
+  <!-- GLOBAL HEADER -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo-wrapper">
+        <a href="index.html" class="logo" id="header-logo">
+          <div class="logo-text-wrapper">
+            <span class="logo-main">Church of Christ</span>
+            <span class="logo-tagline">Kumaran Nagar, Chennai</span>
+          </div>
+        </a>
+      </div>
+      
+      
+      
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link active">About Us</a></li>
+        <li><a href="sundayschool.html" class="nav-link">Sunday School</a></li>
+        <li><a href="media.html" class="nav-link">Media</a></li>
+        <li class="nav-item-dropdown">
+          <a href="javascript:void(0)" class="nav-link" style="cursor: default;">Song Book</a>
+          <ul class="dropdown-menu">
+            <li><a href="songbook.html?lang=tamil" class="dropdown-item">Tamil Songs</a></li>
+            <li><a href="songbook.html?lang=english" class="dropdown-item">English Songs</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        <li class="nav-live-wrapper" style="margin-left: 10px;"><a href="live.html" class="nav-link nav-link-live"><span class="live-dot-pulse"></span>Watch Live</a></li>
+        <li class="nav-btn mobile-only"><a href="login.html" class="btn btn-secondary btn-sm" id="member-portal-nav-btn-mobile">Member Portal</a></li>
+      </ul>
+      
+      <div class="nav-right-area">
+        <div class="nav-action desktop-only">
+        <a href="login.html" class="btn btn-secondary btn-sm" id="member-portal-nav-btn">Member Portal</a>
+      </div>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <svg class="theme-icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+          <svg class="theme-icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+          </svg>
+        </button>
+        <button class="mobile-toggle" aria-label="Toggle menu" id="menu-toggle-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="section section-tertiary" style="padding: 60px 0; text-align: center;">
+    <div class="container">
+      <span class="badge">Who We Are</span>
+      <h1 style="margin-bottom: 10px;">About Our Church</h1>
+      <p style="max-width: 600px; margin: 0 auto; color: var(--text-secondary);">Discover the Christian faith, history, mentors, and missions of the Kumaran Nagar congregation.</p>
+    </div>
+  </section>
+
+  <!-- OUR FAITH & DOCTRINE SECTION -->
+  <section class="section" id="doctrine">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center;">
+        <div>
+          <span class="badge">Our Doctrine</span>
+          <h2>Our Faith & Doctrine</h2>
+          <p style="margin-bottom: 20px;">We believe in the complete authority of the Bible. As a non-denominational congregation, we do not adhere to human creeds or external councils. Instead, we seek to return to the simple structure, worship, and practice of the first-century church as depicted in the scriptures.</p>
+          <p style="margin-bottom: 24px;">Our belief structure is centered on the following scriptural principles:</p>
+          
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px;">
+            <li style="display: flex; gap: 12px; align-items: flex-start;">
+              <div style="background-color: var(--color-accent-light); padding: 4px; border-radius: 50%; color: var(--color-accent); display: flex; flex-shrink: 0;">
+                <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <div>
+                <strong>Bible as Sole Guide</strong>
+                <span style="display: block; font-size: 0.9rem; color: var(--text-secondary);">We speak where the Bible speaks, and remain silent where the Bible is silent (2 Timothy 3:16-17).</span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 12px; align-items: flex-start;">
+              <div style="background-color: var(--color-accent-light); padding: 4px; border-radius: 50%; color: var(--color-accent); display: flex; flex-shrink: 0;">
+                <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <div>
+                <strong>The Plan of Salvation</strong>
+                <span style="display: block; font-size: 0.9rem; color: var(--text-secondary);">Hear the word, Believe, Repent of sins, Confess Christ, and be Baptized for the remission of sins (Acts 2:38).</span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 12px; align-items: flex-start;">
+              <div style="background-color: var(--color-accent-light); padding: 4px; border-radius: 50%; color: var(--color-accent); display: flex; flex-shrink: 0;">
+                <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <div>
+                <strong>Autonomous Congregations</strong>
+                <span style="display: block; font-size: 0.9rem; color: var(--text-secondary);">Each local church is guided locally by a plurality of qualified elders, answering only to Christ.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: 40px; box-shadow: var(--shadow-sm);">
+          <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--color-accent); display: block; margin-bottom: 8px;">Restoration Movement Goal</span>
+          <h3 style="font-size: 1.5rem; margin-bottom: 16px;">Restoring Apostolic Christianity</h3>
+          <p style="font-size: 0.95rem; line-height: 1.7; margin-bottom: 16px;">Our goal is not to start a new denomination or reform an old one, but to bypass centuries of denominational divisions and go straight back to the original seed of the gospel as found in the Bible.</p>
+          <p style="font-size: 0.95rem; line-height: 1.7;">By following the teachings of Jesus Christ and the apostles directly, we seek to be Christians only, united in truth and love.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR JOURNEY SECTION -->
+  <section class="section section-secondary" id="journey">
+    <div class="container">
+      <div class="section-title-wrapper text-center">
+        <span class="badge">History</span>
+        <h2>Our Journey</h2>
+        <p>The history and development of the Church of Christ congregation in Kumaran Nagar.</p>
+      </div>
+
+      <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px; position: relative;">
+        <!-- Simple timeline layout -->
+        <div style="display: flex; gap: 24px;">
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="width: 36px; height: 36px; border-radius: 50%; background-color: var(--color-accent); color: var(--bg-primary); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; box-shadow: var(--shadow-sm);">1</div>
+            <div style="width: 2px; flex-grow: 1; background-color: var(--border-color); margin-top: 10px;"></div>
+          </div>
+          <div style="padding-bottom: 30px;">
+            <h4 style="font-size: 1.2rem; color: var(--text-primary); margin-bottom: 6px;">Early Beginnings</h4>
+            <p style="font-size: 0.95rem;">A small group of believers in Chennai began meeting in homes, dedicating themselves to prayer and the study of God's word, seeking the purity of scriptural faith.</p>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 24px;">
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="width: 36px; height: 36px; border-radius: 50%; background-color: var(--color-accent); color: var(--bg-primary); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; box-shadow: var(--shadow-sm);">2</div>
+            <div style="width: 2px; flex-grow: 1; background-color: var(--border-color); margin-top: 10px;"></div>
+          </div>
+          <div style="padding-bottom: 30px;">
+            <h4 style="font-size: 1.2rem; color: var(--text-primary); margin-bottom: 6px;">Establishment in Kumaran Nagar</h4>
+            <p style="font-size: 0.95rem;">As the numbers grew, the church established a stable presence in Kumaran Nagar, Chennai. Regular bible classes and public worship services were commenced to serve the local neighborhood.</p>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 24px;">
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="width: 36px; height: 36px; border-radius: 50%; background-color: var(--color-accent); color: var(--bg-primary); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; box-shadow: var(--shadow-sm);">3</div>
+          </div>
+          <div>
+            <h4 style="font-size: 1.2rem; color: var(--text-primary); margin-bottom: 6px;">Growth & Outreach</h4>
+            <p style="font-size: 0.95rem;">Today, the church serves as an active community center. With robust ministries for youth, children, and benevolent outreach, we strive to support local disciples and remain faithful to the apostolic pattern.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENTORSHIP & SERVICE SECTION -->
+  <section class="section" id="mentorship">
+    <div class="container">
+      <div class="section-title-wrapper text-center">
+        <span class="badge">Our Mentors</span>
+        <h2>Mentorship & Service</h2>
+        <p>Meet the preachers, elders, and mentors who guide and serve our congregation.</p>
+      </div>
+
+      <!-- Preachers Section -->
+      <h3 style="text-align: center; margin-bottom: 32px; font-weight: 500; font-size: 1.5rem; color: var(--color-accent);">Preachers</h3>
+      <div class="grid grid-2" style="max-width: 800px; margin: 0 auto 60px;">
+        <!-- Senior Preacher Bro. Dr. Peter Solomon -->
+        <div class="profile-card">
+          <div class="profile-avatar-wrapper">
+            <div class="profile-avatar">
+              <!-- User Icon SVG -->
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </div>
+          </div>
+          <div class="profile-info">
+            <span class="profile-role">Senior Preacher</span>
+            <h4 class="profile-name">Bro. Dr. Peter Solomon</h4>
+            <p class="profile-bio">Bro. Dr. Peter Solomon has dedicated decades to preaching the gospel and nurturing the congregation at Kumaran Nagar in sound scriptural doctrine.</p>
+          </div>
+        </div>
+
+        <!-- Assistant Preacher -->
+        <div class="profile-card">
+          <div class="profile-avatar-wrapper">
+            <div class="profile-avatar">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </div>
+          </div>
+          <div class="profile-info">
+            <span class="profile-role">Associate Preacher</span>
+            <h4 class="profile-name">Bro. Dr. Immanuel Victor</h4>
+            <p class="profile-bio">Bro. Dr. Immanuel Victor works alongside Bro. Dr. Peter Solomon, leading evangelical campaigns, youth bible studies, and coordinating local neighborhood outreach.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Elders Section -->
+      <h3 style="text-align: center; margin-bottom: 32px; font-weight: 500; font-size: 1.5rem; color: var(--color-accent);">Elders</h3>
+      <div class="grid grid-3" style="margin-bottom: 60px;">
+        <!-- Elder 1 -->
+        <div class="profile-card">
+          <div class="profile-avatar-wrapper">
+            <div class="profile-avatar">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </div>
+          </div>
+          <div class="profile-info">
+            <span class="profile-role">Elder</span>
+            <h4 class="profile-name">Bro. Yesupatham</h4>
+            <p class="profile-bio">Provides spiritual counsel, scriptural leadership, and dedicated prayer support for the local assembly.</p>
+          </div>
+        </div>
+
+        <!-- Elder 2 -->
+        <div class="profile-card">
+          <div class="profile-avatar-wrapper">
+            <div class="profile-avatar">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </div>
+          </div>
+          <div class="profile-info">
+            <span class="profile-role">Elder</span>
+            <h4 class="profile-name">Bro. A J Wilson</h4>
+            <p class="profile-bio">Focuses on pastoral care, home visitations, and guiding families in New Testament doctrine.</p>
+          </div>
+        </div>
+
+        <!-- Elder 3 -->
+        <div class="profile-card">
+          <div class="profile-avatar-wrapper">
+            <div class="profile-avatar">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </div>
+          </div>
+          <div class="profile-info">
+            <span class="profile-role">Elder</span>
+            <h4 class="profile-name">Bro. Alphonse</h4>
+            <p class="profile-bio">Oversees assembly activities, benevolence coordination, and spiritual mentoring of believers.</p>
+          </div>
+        </div>
+
+        <!-- Elder 4 -->
+        <div class="profile-card">
+          <div class="profile-avatar-wrapper">
+            <div class="profile-avatar">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </div>
+          </div>
+          <div class="profile-info">
+            <span class="profile-role">Elder</span>
+            <h4 class="profile-name">Bro. Palani Lazar</h4>
+            <p class="profile-bio">Serves the congregation through counseling, prayer ministry, and local neighborhood outreach.</p>
+          </div>
+        </div>
+
+        <!-- Elder 5 -->
+        <div class="profile-card">
+          <div class="profile-avatar-wrapper">
+            <div class="profile-avatar">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </div>
+          </div>
+          <div class="profile-info">
+            <span class="profile-role">Elder</span>
+            <h4 class="profile-name">Bro. G Meshak</h4>
+            <p class="profile-bio">Assists with baptismal classes, doctrinal teaching, and guiding the church in weekly scriptures.</p>
+          </div>
+        </div>
+
+        <!-- Elder 6 -->
+        <div class="profile-card">
+          <div class="profile-avatar-wrapper">
+            <div class="profile-avatar">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </div>
+          </div>
+          <div class="profile-info">
+            <span class="profile-role">Elder</span>
+            <h4 class="profile-name">Bro. Devasahayam</h4>
+            <p class="profile-bio">Dedicated to pastoral care, visiting the sick, and assisting with church benevolence programs.</p>
+          </div>
+        </div>
+
+        <!-- Elder 7 -->
+        <div class="profile-card">
+          <div class="profile-avatar-wrapper">
+            <div class="profile-avatar">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </div>
+          </div>
+          <div class="profile-info">
+            <span class="profile-role">Elder</span>
+            <h4 class="profile-name">Bro. Samuel Leon</h4>
+            <p class="profile-bio">Supports Bible study instruction, family spiritual guidance, and local community integration.</p>
+          </div>
+        </div>
+
+        <!-- Elder 8 -->
+        <div class="profile-card">
+          <div class="profile-avatar-wrapper">
+            <div class="profile-avatar">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </div>
+          </div>
+          <div class="profile-info">
+            <span class="profile-role">Elder</span>
+            <h4 class="profile-name">Bro. Rajan</h4>
+            <p class="profile-bio">Helps coordinate worship assemblies, scripture readings, and maintaining church fellowship records.</p>
+          </div>
+        </div>
+
+        <!-- Elder 9 -->
+        <div class="profile-card">
+          <div class="profile-avatar-wrapper">
+            <div class="profile-avatar">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </div>
+          </div>
+          <div class="profile-info">
+            <span class="profile-role">Elder</span>
+            <h4 class="profile-name">Bro. Deva Kumar</h4>
+            <p class="profile-bio">Assists with youth guidance, benevolent works, and administrative support for assembly properties.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second-line Service Section -->
+      <h3 style="text-align: center; margin-bottom: 32px; font-weight: 500; font-size: 1.5rem; color: var(--color-accent);">Ministry & Service Servants</h3>
+      <div class="grid grid-3">
+        <div class="profile-card">
+          <div class="profile-avatar-wrapper">
+            <div class="profile-avatar">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </div>
+          </div>
+          <div class="profile-info">
+            <span class="profile-role">Sunday School Director</span>
+            <h4 class="profile-name">Sis. Hannah Solomon</h4>
+            <p class="profile-bio">Sis. Hannah designs the curriculum, organizes classes, and oversees security database and teachers for Sunday children ministry.</p>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-avatar-wrapper">
+            <div class="profile-avatar">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </div>
+          </div>
+          <div class="profile-info">
+            <span class="profile-role">Media Director</span>
+            <h4 class="profile-name">Bro. Silas Peter</h4>
+            <p class="profile-bio">Coordinates Sunday live-stream operations, manages sermon archives, YouTube channel uploads, and songbook catalog updates.</p>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-avatar-wrapper">
+            <div class="profile-avatar">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </div>
+          </div>
+          <div class="profile-info">
+            <span class="profile-role">Benevolence Coordinator</span>
+            <h4 class="profile-name">Bro. Luke Arul</h4>
+            <p class="profile-bio">Manages local food distributions, financial help requests for members, and medical camps in Kumaran Nagar community.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION WORKS SECTION -->
+  <section class="section section-secondary" id="missions">
+    <div class="container">
+      <div class="section-title-wrapper text-center">
+        <span class="badge">Outreach</span>
+        <h2>Mission & Community Works</h2>
+        <p>Active ministries demonstrating the love of Christ in Chennai and beyond.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <!-- Mission Card 1 -->
+        <div class="card">
+          <h3 class="card-title" style="font-size: 1.25rem;">Free Medical Camps</h3>
+          <p class="card-description">We sponsor quarterly general health checkup camps in Kumaran Nagar, partnering with Christian medical professionals to provide free basic healthcare, diagnostics, and counseling to underprivileged families.</p>
+        </div>
+
+        <!-- Mission Card 2 -->
+        <div class="card">
+          <h3 class="card-title" style="font-size: 1.25rem;">Education Sponsorship</h3>
+          <p class="card-description">Helping local children stay in school by providing school supplies, books, and scholarship funds to low-income families in our community, fostering positive growth and mentorship.</p>
+        </div>
+
+        <!-- Mission Card 3 -->
+        <div class="card">
+          <h3 class="card-title" style="font-size: 1.25rem;">Disaster Relief & Aid</h3>
+          <p class="card-description">In times of monsoonal flooding and severe storms in Chennai, the church acts as a localized supply hub, distributing food packets, dry rations, and clean drinking water to affected families.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <a href="index.html" class="footer-logo">Church of Christ</a>
+        <p>A congregation established directly from the scriptures, serving Kumaran Nagar and surrounding communities.</p>
+      </div>
+      
+      <div>
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="sundayschool.html">Sunday School</a></li>
+          <li><a href="media.html">Media & Resources</a></li>
+          <li><a href="songbook.html">Song Book</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="live.html">Watch Live</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Member Area</h4>
+        <ul class="footer-links">
+          <li><a href="login.html">Member Directory</a></li>
+          <li><a href="login.html">Portal Login</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Contact</h4>
+        <ul class="footer-contact-info">
+          <li>
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            <span>Kumaran Nagar, Chennai, Tamil Nadu, India</span>
+          </li>
+          <li>
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8m-2 11a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h12a2 2 0 012 2v11z"></path>
+            </svg>
+            <span>info@churchofchristkumaranagar.org</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Church of Christ (Kumaran Nagar). All rights reserved.</p>
+      <p>Rooted in scripture, built on faith.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=1.2"></script>
+</body>
+</html>

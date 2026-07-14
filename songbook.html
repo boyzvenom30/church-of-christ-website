@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Church of Christ - Song Book</title>
+  <meta name="description" content="Browse and search our collection of English & Tamil songs by number or name. Sung in simple congregational assemblies.">
+  <link rel="stylesheet" href="css/style.css?v=1.3">
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
+</head>
+<body class="fade-in">
+
+  <!-- GLOBAL HEADER -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo-wrapper">
+        <a href="index.html" class="logo" id="header-logo">
+          <div class="logo-text-wrapper">
+            <span class="logo-main">Church of Christ</span>
+            <span class="logo-tagline">Kumaran Nagar, Chennai</span>
+          </div>
+        </a>
+      </div>
+      
+      
+      
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="sundayschool.html" class="nav-link">Sunday School</a></li>
+        <li><a href="media.html" class="nav-link">Media</a></li>
+        <li class="nav-item-dropdown">
+          <a href="javascript:void(0)" class="nav-link active" style="cursor: default;">Song Book</a>
+          <ul class="dropdown-menu">
+            <li><a href="songbook.html?lang=tamil" class="dropdown-item">Tamil Songs</a></li>
+            <li><a href="songbook.html?lang=english" class="dropdown-item">English Songs</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        <li class="nav-live-wrapper" style="margin-left: 10px;"><a href="live.html" class="nav-link nav-link-live"><span class="live-dot-pulse"></span>Watch Live</a></li>
+        <li class="nav-btn mobile-only"><a href="login.html" class="btn btn-secondary btn-sm" id="member-portal-nav-btn-mobile">Member Portal</a></li>
+      </ul>
+      
+      <div class="nav-right-area">
+        <div class="nav-action desktop-only">
+        <a href="login.html" class="btn btn-secondary btn-sm" id="member-portal-nav-btn">Member Portal</a>
+      </div>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <svg class="theme-icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+          <svg class="theme-icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+          </svg>
+        </button>
+        <button class="mobile-toggle" aria-label="Toggle menu" id="menu-toggle-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="section section-tertiary" style="padding: 60px 0; text-align: center;">
+    <div class="container">
+      <span class="badge">Hymnal</span>
+      <h1 id="songbook-heading" style="margin-bottom: 10px;">Digital Song Book</h1>
+      <p style="max-width: 600px; margin: 0 auto; color: var(--text-secondary);">Browse and search our local assembly songs. Enter a song number or name to find lyrics instantly.</p>
+    </div>
+  </section>
+
+  <!-- SONG BOOK SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="songbook-container">
+        <!-- Interactive Controls -->
+        <div class="songbook-header">
+          <div class="songbook-controls">
+            <!-- Language Selection -->
+            <div class="language-tabs">
+              <button class="lang-btn" data-lang="tamil">Tamil Songs (தமிழ்)</button>
+              <button class="lang-btn" data-lang="english">English Songs</button>
+            </div>
+
+            <!-- Tamil subpart script selector -->
+            <div class="subpart-toggles">
+              <button class="subpart-btn active" data-subpart="script">Tamil</button>
+              <button class="subpart-btn" data-subpart="romanized">Transliterate</button>
+            </div>
+
+            <!-- Search box -->
+            <div class="search-box-wrapper">
+              <svg class="search-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+              <input type="text" id="song-search" class="search-input" placeholder="Search by number or song name...">
+            </div>
+          </div>
+        </div>
+
+        <!-- Song List Grid (Populated dynamically by JS) -->
+        <div class="song-list-grid" id="song-list">
+          <!-- Dynamic cards go here -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <a href="index.html" class="footer-logo">Church of Christ</a>
+        <p>A congregation established directly from the scriptures, serving Kumaran Nagar and surrounding communities.</p>
+      </div>
+      
+      <div>
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="sundayschool.html">Sunday School</a></li>
+          <li><a href="media.html">Media & Resources</a></li>
+          <li><a href="songbook.html">Song Book</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="live.html">Watch Live</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Member Area</h4>
+        <ul class="footer-links">
+          <li><a href="login.html">Member Directory</a></li>
+          <li><a href="login.html">Portal Login</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Contact</h4>
+        <ul class="footer-contact-info">
+          <li>
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            <span>Kumaran Nagar, Chennai, Tamil Nadu, India</span>
+          </li>
+          <li>
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8m-2 11a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h12a2 2 0 012 2v11z"></path>
+            </svg>
+            <span>info@churchofchristkumaranagar.org</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Church of Christ (Kumaran Nagar). All rights reserved.</p>
+      <p>Rooted in scripture, built on faith.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=1.2"></script>
+</body>
+</html>

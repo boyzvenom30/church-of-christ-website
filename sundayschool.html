@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Church of Christ - Sunday School</title>
+  <meta name="description" content="Explore our Sunday School curriculum for various age groups and check class records. Supporting parent-guided Bible teaching.">
+  <link rel="stylesheet" href="css/style.css?v=1.3">
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
+</head>
+<body class="fade-in">
+
+  <!-- GLOBAL HEADER -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo-wrapper">
+        <a href="index.html" class="logo" id="header-logo">
+          <div class="logo-text-wrapper">
+            <span class="logo-main">Church of Christ</span>
+            <span class="logo-tagline">Kumaran Nagar, Chennai</span>
+          </div>
+        </a>
+      </div>
+      
+      
+      
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="sundayschool.html" class="nav-link active">Sunday School</a></li>
+        <li><a href="media.html" class="nav-link">Media</a></li>
+        <li class="nav-item-dropdown">
+          <a href="javascript:void(0)" class="nav-link" style="cursor: default;">Song Book</a>
+          <ul class="dropdown-menu">
+            <li><a href="songbook.html?lang=tamil" class="dropdown-item">Tamil Songs</a></li>
+            <li><a href="songbook.html?lang=english" class="dropdown-item">English Songs</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        <li class="nav-live-wrapper" style="margin-left: 10px;"><a href="live.html" class="nav-link nav-link-live"><span class="live-dot-pulse"></span>Watch Live</a></li>
+        <li class="nav-btn mobile-only"><a href="login.html" class="btn btn-secondary btn-sm" id="member-portal-nav-btn-mobile">Member Portal</a></li>
+      </ul>
+      
+      <div class="nav-right-area">
+        <div class="nav-action desktop-only">
+        <a href="login.html" class="btn btn-secondary btn-sm" id="member-portal-nav-btn">Member Portal</a>
+      </div>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <svg class="theme-icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+          <svg class="theme-icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+          </svg>
+        </button>
+        <button class="mobile-toggle" aria-label="Toggle menu" id="menu-toggle-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="section section-tertiary" style="padding: 60px 0; text-align: center;">
+    <div class="container">
+      <span class="badge">Ministries</span>
+      <h1 style="margin-bottom: 10px;">Sunday School</h1>
+      <p style="max-width: 600px; margin: 0 auto; color: var(--text-secondary);">Guiding our children in the love and wisdom of God's Word through age-appropriate scripture studies.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 1: CURRICULUM -->
+  <section class="section">
+    <div class="container tabs-container">
+
+      <!-- Tab Buttons -->
+      <div class="tabs-nav">
+        <button class="tab-btn active" data-tab="primary-class">Primary (Ages 4-7)</button>
+        <button class="tab-btn" data-tab="junior-class">Juniors (Ages 8-11)</button>
+        <button class="tab-btn" data-tab="senior-class">Seniors (Ages 12-14)</button>
+        <button class="tab-btn" data-tab="youth-class">Youth Class (Ages 15+)</button>
+      </div>
+
+      <!-- Tab Contents -->
+      <!-- Primary -->
+      <div class="tab-content active" id="primary-class">
+        <div class="grid grid-2" style="align-items: center;">
+          <div>
+            <h3 style="margin-bottom: 16px;">Primary Class: Bible Foundations</h3>
+            <p style="margin-bottom: 20px;">Focuses on introducing young minds to the major stories of the Bible, the creation, the love of God, and basic moral teachings. Classes use interactive crafts, simple songs, and engaging storytelling.</p>
+            <div style="background-color: var(--bg-secondary); padding: 20px; border-radius: var(--border-radius-sm); border-left: 4px solid var(--color-accent);">
+              <strong style="display: block; margin-bottom: 8px; color: var(--text-primary);">Quarterly Focus:</strong>
+              <span style="font-size: 0.95rem;">Old Testament Heroes (Noah, Abraham, Moses, and David) &bull; Simple Memory Verses.</span>
+            </div>
+          </div>
+          <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); padding: 36px; border-radius: var(--border-radius-md);">
+            <h4 style="margin-bottom: 16px; font-weight: 600;">Key Topics Covered:</h4>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem;">
+              <li>&bull; The Creation of the World (Genesis 1-2)</li>
+              <li>&bull; The Story of Noah's Ark (Genesis 6-9)</li>
+              <li>&bull; Joseph and his Multi-colored Coat</li>
+              <li>&bull; Daniel in the Lions' Den</li>
+              <li>&bull; Parables of Jesus told simply</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Juniors -->
+      <div class="tab-content" id="junior-class">
+        <div class="grid grid-2" style="align-items: center;">
+          <div>
+            <h3 style="margin-bottom: 16px;">Juniors: Growing in faith</h3>
+            <p style="margin-bottom: 20px;">Designed to help children read and locate scriptures themselves. We study the historical timeline of the Old Testament and the life and teachings of Jesus Christ in detail.</p>
+            <div style="background-color: var(--bg-secondary); padding: 20px; border-radius: var(--border-radius-sm); border-left: 4px solid var(--color-accent);">
+              <strong style="display: block; margin-bottom: 8px; color: var(--text-primary);">Quarterly Focus:</strong>
+              <span style="font-size: 0.95rem;">The Life, Ministry, and Miracles of Jesus Christ in the Synoptic Gospels.</span>
+            </div>
+          </div>
+          <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); padding: 36px; border-radius: var(--border-radius-md);">
+            <h4 style="margin-bottom: 16px; font-weight: 600;">Key Topics Covered:</h4>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem;">
+              <li>&bull; The Books of the Bible Structure</li>
+              <li>&bull; The Sermon on the Mount</li>
+              <li>&bull; Jesus Calming the Storm</li>
+              <li>&bull; The Parable of the Prodigal Son</li>
+              <li>&bull; The Early Apostles and their calling</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seniors -->
+      <div class="tab-content" id="senior-class">
+        <div class="grid grid-2" style="align-items: center;">
+          <div>
+            <h3 style="margin-bottom: 16px;">Seniors: Applying Scripture</h3>
+            <p style="margin-bottom: 20px;">Seniors are guided to apply Bible principles to their daily lives, handling school peer pressures, developing moral integrity, and understanding the scheme of redemption.</p>
+            <div style="background-color: var(--bg-secondary); padding: 20px; border-radius: var(--border-radius-sm); border-left: 4px solid var(--color-accent);">
+              <strong style="display: block; margin-bottom: 8px; color: var(--text-primary);">Quarterly Focus:</strong>
+              <span style="font-size: 0.95rem;">The Book of Acts &bull; How the Early Church spread the Gospel.</span>
+            </div>
+          </div>
+          <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); padding: 36px; border-radius: var(--border-radius-md);">
+            <h4 style="margin-bottom: 16px; font-weight: 600;">Key Topics Covered:</h4>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem;">
+              <li>&bull; The Day of Pentecost (Acts 2)</li>
+              <li>&bull; The Journeys of the Apostle Paul</li>
+              <li>&bull; Christian Armor (Ephesians 6)</li>
+              <li>&bull; Peer Pressure and Decision Making</li>
+              <li>&bull; Understanding Christian baptism</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Youth -->
+      <div class="tab-content" id="youth-class">
+        <div class="grid grid-2" style="align-items: center;">
+          <div>
+            <h3 style="margin-bottom: 16px;">Youth Class: Strong Discipleship</h3>
+            <p style="margin-bottom: 20px;">Prepares teenagers for college and adulthood, centering on advanced biblical theology, church history, apologetics (defending the faith), and spiritual development.</p>
+            <div style="background-color: var(--bg-secondary); padding: 20px; border-radius: var(--border-radius-sm); border-left: 4px solid var(--color-accent);">
+              <strong style="display: block; margin-bottom: 8px; color: var(--text-primary);">Quarterly Focus:</strong>
+              <span style="font-size: 0.95rem;">Basic Christian Apologetics &bull; Faith vs. Skepticism in the modern world.</span>
+            </div>
+          </div>
+          <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); padding: 36px; border-radius: var(--border-radius-md);">
+            <h4 style="margin-bottom: 16px; font-weight: 600;">Key Topics Covered:</h4>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem;">
+              <li>&bull; The Reliability of Biblical Manuscripts</li>
+              <li>&bull; Study of the Epistle to the Romans</li>
+              <li>&bull; Finding God's Will for Your Career</li>
+              <li>&bull; Serving and Preaching in local assemblies</li>
+              <li>&bull; Biblical service qualities</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: SECURE TABLE MOCKUP -->
+  <section class="section section-secondary">
+    <div class="container">
+      <div class="section-title-wrapper text-center">
+        <span class="badge">Administration</span>
+        <h2>Class Registry (Mockup)</h2>
+        <p>A clean demonstration of our Sunday class administration directory. Confidentially managed in real production systems.</p>
+      </div>
+
+      <!-- Secure Table Placeholder -->
+      <div class="data-table-wrapper">
+        <div class="alert-box" style="margin: 20px 24px 0;">
+          <!-- Shield Check SVG -->
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+          <span><strong>Security Notice:</strong> Believers' active contact directories are stored securely. Believers must log in to view phone directories and address lists.</span>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Roll No.</th>
+              <th>Student Name</th>
+              <th>Class Group</th>
+              <th>Teacher Name</th>
+              <th>Attendance Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#SC-001</td>
+              <td>Samuel Timothy</td>
+              <td>Primary Class</td>
+              <td>Sis. Hannah Solomon</td>
+              <td>
+                <div class="status-indicator">
+                  <span class="status-dot active"></span>
+                  <span>Present</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>#SC-002</td>
+              <td>Eunice Mercy</td>
+              <td>Primary Class</td>
+              <td>Sis. Hannah Solomon</td>
+              <td>
+                <div class="status-indicator">
+                  <span class="status-dot active"></span>
+                  <span>Present</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>#SC-003</td>
+              <td>Jonathan Abraham</td>
+              <td>Juniors Class</td>
+              <td>Bro. Stephen Raj</td>
+              <td>
+                <div class="status-indicator">
+                  <span class="status-dot active"></span>
+                  <span>Present</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>#SC-004</td>
+              <td>Lois Grace</td>
+              <td>Juniors Class</td>
+              <td>Bro. Stephen Raj</td>
+              <td>
+                <div class="status-indicator">
+                  <span class="status-dot"></span>
+                  <span>Absent</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>#SC-005</td>
+              <td>Daniel Paul</td>
+              <td>Seniors Class</td>
+              <td>Bro. Silas Peter</td>
+              <td>
+                <div class="status-indicator">
+                  <span class="status-dot active"></span>
+                  <span>Present</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <a href="index.html" class="footer-logo">Church of Christ</a>
+        <p>A congregation established directly from the scriptures, serving Kumaran Nagar and surrounding communities.</p>
+      </div>
+      
+      <div>
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="sundayschool.html">Sunday School</a></li>
+          <li><a href="media.html">Media & Resources</a></li>
+          <li><a href="songbook.html">Song Book</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="live.html">Watch Live</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Member Area</h4>
+        <ul class="footer-links">
+          <li><a href="login.html">Member Directory</a></li>
+          <li><a href="login.html">Portal Login</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Contact</h4>
+        <ul class="footer-contact-info">
+          <li>
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            <span>Kumaran Nagar, Chennai, Tamil Nadu, India</span>
+          </li>
+          <li>
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8m-2 11a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h12a2 2 0 012 2v11z"></path>
+            </svg>
+            <span>info@churchofchristkumaranagar.org</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Church of Christ (Kumaran Nagar). All rights reserved.</p>
+      <p>Rooted in scripture, built on faith.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=1.2"></script>
+</body>
+</html>

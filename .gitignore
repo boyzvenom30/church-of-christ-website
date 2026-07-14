@@ -1,0 +1,13 @@
+# Python temporary files
+__pycache__/
+*.pyc
+
+# Local backup/helper scripts
+*.py
+
+# Build/zip files
+*.zip
+
+# System logs
+.system_generated/
+.gemini/

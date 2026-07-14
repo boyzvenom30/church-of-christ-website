@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Church of Christ - Member Dashboard</title>
+  <meta name="description" content="Access-restricted member directory showing list of believers, phone numbers, and home addresses.">
+  <link rel="stylesheet" href="css/style.css?v=1.3">
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
+</head>
+<body class="fade-in" id="member-dashboard-section">
+
+  <!-- GLOBAL HEADER -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo-wrapper">
+        <a href="index.html" class="logo" id="header-logo">
+          <div class="logo-text-wrapper">
+            <span class="logo-main">Church of Christ</span>
+            <span class="logo-tagline">Kumaran Nagar, Chennai</span>
+          </div>
+        </a>
+      </div>
+      
+      
+      
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="sundayschool.html" class="nav-link">Sunday School</a></li>
+        <li><a href="media.html" class="nav-link">Media</a></li>
+        <li class="nav-item-dropdown">
+          <a href="javascript:void(0)" class="nav-link" style="cursor: default;">Song Book</a>
+          <ul class="dropdown-menu">
+            <li><a href="songbook.html?lang=tamil" class="dropdown-item">Tamil Songs</a></li>
+            <li><a href="songbook.html?lang=english" class="dropdown-item">English Songs</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        <li class="nav-live-wrapper" style="margin-left: 10px;"><a href="live.html" class="nav-link nav-link-live"><span class="live-dot-pulse"></span>Watch Live</a></li>
+        <li class="nav-btn mobile-only"><button id="dashboard-logout-btn-mobile" class="btn btn-secondary btn-sm" style="background-color:#e07a5f; border-color:#e07a5f; color:white; width:100%;">Logout</button></li>
+      </ul>
+      
+      <div class="nav-right-area">
+        <div class="nav-action desktop-only" style="display: flex; gap: 16px; align-items: center;">
+        <div class="dashboard-user-info" style="display: flex; gap: 10px; align-items: center; margin-right: 15px;">
+          <div id="dashboard-user-initials" class="dashboard-user-badge" style="width: 32px; height: 32px; background-color: var(--color-accent-light); color: var(--color-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; margin-bottom: 0;">PS</div>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <svg class="theme-icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+          <svg class="theme-icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+          </svg>
+        </button>
+        <button class="mobile-toggle" aria-label="Toggle menu" id="menu-toggle-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- DASHBOARD CONTENTS -->
+  <section class="section" style="padding-top: 40px;">
+    <div class="container">
+      
+      <div class="dashboard-title-section">
+        <div>
+          <span class="badge">Internal Directory</span>
+          <h2>Believers Directory</h2>
+        </div>
+        <div class="status-indicator" style="background-color: var(--bg-secondary); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--border-color);">
+          <span class="status-dot active"></span>
+          <span style="font-weight:600; font-size:0.85rem;">Secure Session Active</span>
+        </div>
+      </div>
+
+      <!-- Security Notice -->
+      <div class="alert-box">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+        </svg>
+        <span>
+          <strong>Confidentiality Agreement:</strong> This database contains contact information for Church of Christ believers. Do not share, distribute, or copy this information without prior approval from the elders.
+        </span>
+      </div>
+
+      <!-- Believers Table -->
+      <div class="data-table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Believer Name</th>
+              <th>Family Group</th>
+              <th>Phone Number</th>
+              <th>Residential Address</th>
+              <th>Role / Ministry</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Bro. Dr. Peter Solomon</strong></td>
+              <td>Solomon Family</td>
+              <td>+91 98401 23456</td>
+              <td>12, First Cross Street, Kumaran Nagar, Chennai - 600082</td>
+              <td>Media / Sunday School</td>
+            </tr>
+            <tr>
+              <td><strong>Sis. Hannah Solomon</strong></td>
+              <td>Peter Family</td>
+              <td>+91 98401 23457</td>
+              <td>12, First Cross Street, Kumaran Nagar, Chennai - 600082</td>
+              <td>Sunday School Director</td>
+            </tr>
+            <tr>
+              <td><strong>Bro. Yesupatham</strong></td>
+              <td>Yesupatham Family</td>
+              <td>+91 98402 34567</td>
+              <td>45, Gandhi Road, Periyar Nagar, Chennai - 600082</td>
+              <td>Elder</td>
+            </tr>
+            <tr>
+              <td><strong>Bro. A J Wilson</strong></td>
+              <td>Wilson Family</td>
+              <td>+91 98402 34568</td>
+              <td>14, Nehru Salai, Kumaran Nagar, Chennai - 600082</td>
+              <td>Elder</td>
+            </tr>
+            <tr>
+              <td><strong>Bro. Alphonse</strong></td>
+              <td>Alphonse Family</td>
+              <td>+91 98403 45678</td>
+              <td>8, Anna Street, Kumaran Nagar, Chennai - 600082</td>
+              <td>Elder</td>
+            </tr>
+            <tr>
+              <td><strong>Bro. Palani Lazar</strong></td>
+              <td>Lazar Family</td>
+              <td>+91 98404 56789</td>
+              <td>33, Nehru Colony, Chennai - 600082</td>
+              <td>Elder</td>
+            </tr>
+            <tr>
+              <td><strong>Bro. G Meshak</strong></td>
+              <td>Meshak Family</td>
+              <td>+91 98405 67890</td>
+              <td>19, Kamarajar Salai, Chennai - 600082</td>
+              <td>Elder</td>
+            </tr>
+            <tr>
+              <td><strong>Bro. Devasahayam</strong></td>
+              <td>Devasahayam Family</td>
+              <td>+91 98406 78901</td>
+              <td>22, Gandhi Nagar, Chennai - 600082</td>
+              <td>Elder</td>
+            </tr>
+            <tr>
+              <td><strong>Bro. Samuel Leon</strong></td>
+              <td>Leon Family</td>
+              <td>+91 98407 89012</td>
+              <td>5, Patel Street, Chennai - 600082</td>
+              <td>Elder</td>
+            </tr>
+            <tr>
+              <td><strong>Bro. Rajan</strong></td>
+              <td>Rajan Family</td>
+              <td>+91 98408 90123</td>
+              <td>11, Shastri Nagar, Chennai - 600082</td>
+              <td>Elder</td>
+            </tr>
+            <tr>
+              <td><strong>Bro. Deva Kumar</strong></td>
+              <td>Kumar Family</td>
+              <td>+91 98409 01234</td>
+              <td>27, Netaji Road, Chennai - 600082</td>
+              <td>Elder</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Additional Quick Links for Members -->
+      <div class="grid grid-3" style="margin-top: 40px;">
+        <div class="card" style="padding: 24px;">
+          <h4 style="font-size:1.1rem; margin-bottom:8px;">Duty Rosters</h4>
+          <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:12px;">Check scripture reading, song leading, and communion preparation assignments.</p>
+          <a href="#" class="btn btn-secondary btn-sm" onclick="alert('Rosters database integration placeholder.')">View Duty Roster</a>
+        </div>
+        <div class="card" style="padding: 24px;">
+          <h4 style="font-size:1.1rem; margin-bottom:8px;">Benevolence Requests</h4>
+          <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:12px;">Submit or review active relief/benevolent assistance requests in the community.</p>
+          <a href="#" class="btn btn-secondary btn-sm" onclick="alert('Benevolence request form placeholder.')">Submit Request</a>
+        </div>
+        <div class="card" style="padding: 24px;">
+          <h4 style="font-size:1.1rem; margin-bottom:8px;">Meeting Minutes</h4>
+          <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:12px;">Access the logged summaries of the recent mentors and elders meetings.</p>
+          <a href="#" class="btn btn-secondary btn-sm" onclick="alert('Meeting minutes file archive placeholder.')">Open Archives</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SMALL DASHBOARD FOOTER -->
+  <footer style="border-top:1px solid var(--border-color); padding:30px 0; text-align:center; color:var(--text-muted); font-size:0.85rem; background-color:var(--bg-secondary);">
+    <div class="container">
+      <p>Church of Christ Member Portal &bull; Internal Directory System &copy; 2026</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=1.2"></script>
+</body>
+</html>
