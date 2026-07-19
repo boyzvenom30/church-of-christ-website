@@ -2017,3 +2017,55 @@ body, .header, .footer, .card, .contact-form-card, .login-card, .dashboard-card,
   background-color: rgba(255, 255, 255, 0.25) !important;
   color: var(--color-accent) !important;
 }
+
+/* ==========================================
+   DISTINGUISHED PROFILE CARD TIERS
+   ========================================== */
+/* Tier 1: Preachers (Solid gold top border, primary background) */
+.profile-card-preacher {
+  border-top: 4px solid var(--color-accent) !important;
+  background-color: var(--bg-primary) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+.profile-card-preacher .profile-role {
+  color: var(--color-accent) !important;
+  font-weight: 700 !important;
+}
+
+/* Tier 2: Elders (Left slate border, secondary background, left-aligned text) */
+.profile-card-elder {
+  border-left: 4px solid var(--color-accent) !important; /* Clean gold left accent line */
+  background-color: var(--bg-secondary) !important;
+  text-align: left !important;
+}
+.profile-card-elder .profile-info {
+  padding: 20px 24px !important;
+}
+.profile-card-elder .profile-role {
+  color: var(--text-secondary) !important;
+  font-size: 0.8rem !important;
+}
+.profile-card-elder .profile-name {
+  font-size: 1.15rem !important;
+  margin-bottom: 0 !important;
+  color: var(--text-primary) !important;
+}
+
+/* Tier 3: Associate Ministers (Dashed border, transparent background, centered text) */
+.profile-card-associate {
+  border: 1px dashed var(--border-color) !important;
+  background-color: transparent !important;
+  text-align: center !important;
+}
+.profile-card-associate .profile-info {
+  padding: 20px !important;
+}
+.profile-card-associate .profile-role {
+  color: var(--text-muted) !important;
+  font-size: 0.8rem !important;
+}
+.profile-card-associate .profile-name {
+  font-size: 1.15rem !important;
+  margin-bottom: 0 !important;
+  color: var(--text-primary) !important;
+}
