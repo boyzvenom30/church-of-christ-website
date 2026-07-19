@@ -360,12 +360,12 @@
     </div>
   </footer>
 
-  <!-- FLOATING SERVICE TIMES WIDGET -->
-  <button id="floating-schedule-btn" class="floating-schedule-btn" aria-label="View Service Times">
+    <!-- FLOATING SERVICE TIMINGS WIDGET -->
+  <button id="floating-schedule-btn" class="floating-schedule-btn" aria-label="View Service Timings">
     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
     </svg>
-    <span>Service Times</span>
+    <span>Service Timings</span>
   </button>
 
   <!-- WIDGET DRAWER BACKDROP -->
@@ -374,7 +374,7 @@
   <!-- WIDGET DRAWER PANEL -->
   <div id="schedule-drawer" class="schedule-drawer">
     <div class="schedule-drawer-header">
-      <h3>Weekly Services</h3>
+      <h3>Service Timings</h3>
       <button id="schedule-drawer-close" class="schedule-drawer-close" aria-label="Close Panel">&times;</button>
     </div>
     <div class="schedule-drawer-body">
@@ -431,14 +431,14 @@
       const closeBtn = document.getElementById('schedule-drawer-close');
 
       function openDrawer() {
-        drawer.classList.add('open');
-        overlay.classList.add('active');
+        if (drawer) drawer.classList.add('open');
+        if (overlay) overlay.classList.add('active');
         document.body.style.overflow = 'hidden';
       }
 
       function closeDrawer() {
-        drawer.classList.remove('open');
-        overlay.classList.remove('active');
+        if (drawer) drawer.classList.remove('open');
+        if (overlay) overlay.classList.remove('active');
         document.body.style.overflow = '';
       }
 
@@ -449,6 +449,7 @@
       }
     });
   </script>
+
 
   <script src="js/main.js?v=1.2"></script>
 </body>

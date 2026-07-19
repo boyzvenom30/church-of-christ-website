@@ -261,6 +261,97 @@
     </div>
   </footer>
 
+    <!-- FLOATING SERVICE TIMINGS WIDGET -->
+  <button id="floating-schedule-btn" class="floating-schedule-btn" aria-label="View Service Timings">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+    </svg>
+    <span>Service Timings</span>
+  </button>
+
+  <!-- WIDGET DRAWER BACKDROP -->
+  <div id="schedule-drawer-overlay" class="schedule-drawer-overlay"></div>
+
+  <!-- WIDGET DRAWER PANEL -->
+  <div id="schedule-drawer" class="schedule-drawer">
+    <div class="schedule-drawer-header">
+      <h3>Service Timings</h3>
+      <button id="schedule-drawer-close" class="schedule-drawer-close" aria-label="Close Panel">&times;</button>
+    </div>
+    <div class="schedule-drawer-body">
+      <!-- Sunday Worship -->
+      <div class="schedule-drawer-group">
+        <h4>Sunday Worship</h4>
+        <div class="schedule-drawer-item">
+          <span class="time">5:00 AM – 6:00 AM</span>
+          <span class="desc">English Worship</span>
+        </div>
+        <div class="schedule-drawer-item">
+          <span class="time">8:00 AM – 9:30 AM</span>
+          <span class="desc">Tamil Worship</span>
+        </div>
+        <div class="schedule-drawer-item">
+          <span class="time">10:00 AM – 11:30 AM</span>
+          <span class="desc">Mizo Worship</span>
+        </div>
+        <div class="schedule-drawer-item">
+          <span class="time">10:30 AM – 12:00 PM</span>
+          <span class="desc">Telugu Worship</span>
+        </div>
+        <div class="schedule-drawer-item">
+          <span class="time">6:00 PM – 7:30 PM</span>
+          <span class="desc">English Worship (with Tamil translation)</span>
+        </div>
+      </div>
+
+      <!-- Wednesday -->
+      <div class="schedule-drawer-group">
+        <h4>Wednesday Bible Class</h4>
+        <div class="schedule-drawer-item">
+          <span class="time">6:30 PM – 7:30 PM</span>
+          <span class="desc">Weekly Bible Study & Prayer</span>
+        </div>
+      </div>
+
+      <!-- Friday -->
+      <div class="schedule-drawer-group">
+        <h4>Friday Prayer Meeting</h4>
+        <div class="schedule-drawer-item">
+          <span class="time">10:00 AM – 12:00 PM</span>
+          <span class="desc">Women's Prayer Meeting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const btn = document.getElementById('floating-schedule-btn');
+      const drawer = document.getElementById('schedule-drawer');
+      const overlay = document.getElementById('schedule-drawer-overlay');
+      const closeBtn = document.getElementById('schedule-drawer-close');
+
+      function openDrawer() {
+        if (drawer) drawer.classList.add('open');
+        if (overlay) overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer() {
+        if (drawer) drawer.classList.remove('open');
+        if (overlay) overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      if (btn && drawer && overlay && closeBtn) {
+        btn.addEventListener('click', openDrawer);
+        closeBtn.addEventListener('click', closeDrawer);
+        overlay.addEventListener('click', closeDrawer);
+      }
+    });
+  </script>
+
+
   <script src="js/main.js?v=1.2"></script>
 </body>
 </html>
