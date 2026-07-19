@@ -229,6 +229,17 @@ button, input, textarea, select {
   align-items: center;
 }
 
+.header .container {
+  max-width: 100%;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .header .container {
+    padding: 0 40px;
+  }
+}
+
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -295,7 +306,7 @@ button, input, textarea, select {
 .nav-link {
   font-family: var(--font-headings);
   font-weight: 500;
-  font-size: 0.92rem; /* Slightly adjusted to accommodate Gallery link */
+  font-size: 0.95rem; /* Restored original premium size */
   color: var(--text-secondary);
   position: relative;
   padding: 6px 0;
@@ -358,7 +369,7 @@ button, input, textarea, select {
   
   .nav-menu {
     justify-self: center;
-    gap: 14px; /* Reduced gap to fit all 8 links beautifully without overlap */
+    gap: 24px; /* Generous spacing now that header is full-width */
   }
   
   .nav-action.desktop-only {
