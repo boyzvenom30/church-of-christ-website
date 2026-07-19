@@ -1975,3 +1975,33 @@ body, .header, .footer, .card, .contact-form-card, .login-card, .dashboard-card,
     gap: 12px;
   }
 }
+
+/* ==========================================
+   CHURCH GALLERY & LIGHTBOX STYLES
+   ========================================== */
+.gallery-item {
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), opacity 0.3s ease !important;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.gallery-item img {
+  transition: transform var(--transition-slow);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+#lightbox-modal.active {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+#lightbox-close:hover {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  color: var(--color-accent) !important;
+}

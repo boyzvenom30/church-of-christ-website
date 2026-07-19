@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Church of Christ - Gallery</title>
+  <meta name="description" content="Browse photos from our assemblies, Sunday school classes, and community mission works in Kumaran Nagar, Chennai.">
+  <link rel="stylesheet" href="css/style.css?v=1.3">
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
+</head>
+<body class="fade-in">
+
+  <!-- GLOBAL HEADER -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo-wrapper">
+        <a href="index.html" class="logo" id="header-logo">
+          <div class="logo-text-wrapper">
+            <span class="logo-main">Church of Christ</span>
+            <span class="logo-tagline">Kumaran Nagar, Chennai</span>
+          </div>
+        </a>
+      </div>
+      
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="sundayschool.html" class="nav-link">Sunday School</a></li>
+        <li><a href="media.html" class="nav-link">Media</a></li>
+        <li class="nav-item-dropdown">
+          <a href="javascript:void(0)" class="nav-link" style="cursor: default;">Song Book</a>
+          <ul class="dropdown-menu">
+            <li><a href="songbook.html?lang=tamil" class="dropdown-item">Tamil Songs</a></li>
+            <li><a href="songbook.html?lang=english" class="dropdown-item">English Songs</a></li>
+          </ul>
+        </li>
+        <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        <li class="nav-live-wrapper" style="margin-left: 10px;"><a href="live.html" class="nav-link nav-link-live"><span class="live-dot-pulse"></span>Watch Live</a></li>
+        <li class="nav-btn mobile-only"><a href="login.html" class="btn btn-secondary btn-sm" id="member-portal-nav-btn-mobile">Member Portal</a></li>
+      </ul>
+      
+      <div class="nav-right-area">
+        <div class="nav-action desktop-only">
+          <a href="login.html" class="btn btn-secondary btn-sm" id="member-portal-nav-btn">Member Portal</a>
+        </div>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <svg class="theme-icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+          <svg class="theme-icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+          </svg>
+        </button>
+        <button class="mobile-toggle" aria-label="Toggle menu" id="menu-toggle-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="section section-tertiary" style="padding: 60px 0; text-align: center;">
+    <div class="container">
+      <span class="badge">Moments & Memories</span>
+      <h1 style="margin-bottom: 10px;">Church Gallery</h1>
+      <p style="max-width: 600px; margin: 0 auto; color: var(--text-secondary);">A visual record of our congregation's fellowship, worship assemblies, sunday school classes, and local missions.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY CONTENT -->
+  <section class="section">
+    <div class="container">
+      
+      <!-- Filter Buttons -->
+      <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap;">
+        <button class="gallery-filter-btn tab-btn active" data-filter="all">All Photos</button>
+        <button class="gallery-filter-btn tab-btn" data-filter="worship">Worship</button>
+        <button class="gallery-filter-btn tab-btn" data-filter="fellowship">Fellowship</button>
+        <button class="gallery-filter-btn tab-btn" data-filter="sundayschool">Sunday School</button>
+        <button class="gallery-filter-btn tab-btn" data-filter="missions">Missions</button>
+      </div>
+
+      <!-- Photo Grid -->
+      <div class="grid grid-3" id="gallery-grid">
+        
+        <!-- Worship Item -->
+        <div class="gallery-item card" data-category="worship" style="overflow: hidden; padding: 0; display: flex; flex-direction: column;">
+          <div style="position: relative; overflow: hidden; aspect-ratio: 4/3;">
+            <img src="images/gallery-worship.png" alt="Worship Assembly" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-normal);">
+          </div>
+          <div style="padding: 20px; flex-grow: 1;">
+            <h4 class="gallery-caption-title" style="font-size: 1.15rem; margin-bottom: 6px;">Worship Assembly Hall</h4>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Our primary assembly hall set up for Sunday services.</p>
+          </div>
+        </div>
+
+        <!-- Fellowship Item -->
+        <div class="gallery-item card" data-category="fellowship" style="overflow: hidden; padding: 0; display: flex; flex-direction: column;">
+          <div style="position: relative; overflow: hidden; aspect-ratio: 4/3;">
+            <img src="images/gallery-fellowship.png" alt="Christian Fellowship" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-normal);">
+          </div>
+          <div style="padding: 20px; flex-grow: 1;">
+            <h4 class="gallery-caption-title" style="font-size: 1.15rem; margin-bottom: 6px;">Congregational Fellowship</h4>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Believers sharing warm conversations after worship assemblies.</p>
+          </div>
+        </div>
+
+        <!-- Sunday School Item -->
+        <div class="gallery-item card" data-category="sundayschool" style="overflow: hidden; padding: 0; display: flex; flex-direction: column;">
+          <div style="position: relative; overflow: hidden; aspect-ratio: 4/3;">
+            <img src="images/gallery-school.png" alt="Sunday School Lesson" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-normal);">
+          </div>
+          <div style="padding: 20px; flex-grow: 1;">
+            <h4 class="gallery-caption-title" style="font-size: 1.15rem; margin-bottom: 6px;">Sunday School Class</h4>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Our young students learning fundamental scriptures together.</p>
+          </div>
+        </div>
+
+        <!-- Missions Item -->
+        <div class="gallery-item card" data-category="missions" style="overflow: hidden; padding: 0; display: flex; flex-direction: column;">
+          <div style="position: relative; overflow: hidden; aspect-ratio: 4/3;">
+            <img src="images/gallery-missions.png" alt="Benevolence Outreach" style="width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-normal);">
+          </div>
+          <div style="padding: 20px; flex-grow: 1;">
+            <h4 class="gallery-caption-title" style="font-size: 1.15rem; margin-bottom: 6px;">Community Benevolent Works</h4>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Distributing relief packs to families around Kumaran Nagar.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(18, 18, 16, 0.96); z-index: 1000; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; padding: 24px;">
+    <button id="lightbox-close" style="position: absolute; top: 20px; right: 20px; background: rgba(255, 255, 255, 0.1); border: none; border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: white; transition: all 0.2s ease;">
+      <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    <img id="lightbox-img" src="" alt="Enlarged gallery photo" style="max-width: 90%; max-height: 75%; object-fit: contain; border-radius: var(--border-radius-sm); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: var(--shadow-lg);">
+    <h3 id="lightbox-caption" style="color: white; font-size: 1.25rem; font-family: var(--font-headings); font-weight: 500; margin-top: 20px; text-align: center;"></h3>
+  </div>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <a href="index.html" class="footer-logo">Church of Christ</a>
+        <p>A congregation established directly from the scriptures, serving Kumaran Nagar and surrounding communities.</p>
+      </div>
+      
+      <div>
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="sundayschool.html">Sunday School</a></li>
+          <li><a href="media.html">Media & Resources</a></li>
+          <li><a href="songbook.html">Song Book</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="live.html">Watch Live</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Member Area</h4>
+        <ul class="footer-links">
+          <li><a href="login.html">Member Directory</a></li>
+          <li><a href="login.html">Portal Login</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Contact</h4>
+        <ul class="footer-contact-info">
+          <li>
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            <span>Kumaran Nagar, Chennai, Tamil Nadu, India</span>
+          </li>
+          <li>
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8m-2 11a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h12a2 2 0 012 2v11z"></path>
+            </svg>
+            <span>info@churchofchristkumaranagar.org</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Church of Christ (Kumaran Nagar). All rights reserved.</p>
+      <p>Rooted in scripture, built on faith.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=1.2"></script>
+</body>
+</html>
