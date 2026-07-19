@@ -295,10 +295,11 @@ button, input, textarea, select {
 .nav-link {
   font-family: var(--font-headings);
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.92rem; /* Slightly adjusted to accommodate Gallery link */
   color: var(--text-secondary);
   position: relative;
   padding: 6px 0;
+  white-space: nowrap; /* Prevent ugly link text wrapping */
 }
 
 .nav-link:hover, .nav-link.active {
@@ -357,7 +358,7 @@ button, input, textarea, select {
   
   .nav-menu {
     justify-self: center;
-    gap: 20px; /* Tighter gap on desktop to fit all 7 links beautifully without overlap */
+    gap: 14px; /* Reduced gap to fit all 8 links beautifully without overlap */
   }
   
   .nav-action.desktop-only {
