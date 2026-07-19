@@ -2233,3 +2233,40 @@ body, .header, .footer, .card, .contact-form-card, .login-card, .dashboard-card,
     width: 290px;
   }
 }
+
+/* ==========================================
+   EXTRA MOBILE RESPONSIVE OPTIMIZATIONS
+   ========================================== */
+@media (max-width: 480px) {
+  /* Scale down base layout typography and spacing */
+  h1 { font-size: 1.85rem !important; }
+  h2 { font-size: 1.5rem !important; }
+  h3 { font-size: 1.2rem !important; }
+  .section { padding: 48px 0 !important; }
+  .container { padding: 0 16px !important; }
+
+  /* Ensure the logo fits on small mobile screens */
+  .logo-main {
+    font-size: 1.45rem !important;
+  }
+  .logo-tagline {
+    font-size: 0.65rem !important;
+  }
+
+  /* Scale down the hero visual shape to prevent overflow */
+  .hero-shape-container {
+    width: 250px !important;
+    height: 250px !important;
+  }
+
+  /* Optimize button padding on small screens */
+  .btn {
+    padding: 10px 18px !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* Adjust grid gap slightly */
+  .grid {
+    gap: 16px !important;
+  }
+}
