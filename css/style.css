@@ -2276,7 +2276,7 @@ body, .header, .footer, .card, .contact-form-card, .login-card, .dashboard-card,
    REDESIGNED GLOBAL FOOTER (OPTION 1)
    ========================================== */
 .footer {
-  background-color: #0b0b0a; /* Premium dark background */
+  background-color: var(--bg-secondary); /* Adaptive secondary background */
   border-top: 1px solid var(--border-color);
   padding: 80px 0 40px;
   margin-top: auto;
