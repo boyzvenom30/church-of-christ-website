@@ -1282,7 +1282,7 @@ button, input, textarea, select {
 
 .modal-lyrics-content {
   white-space: pre-line;
-  text-align: center;
+  text-align: left;
   font-family: var(--font-body);
 }
 
