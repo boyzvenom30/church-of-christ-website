@@ -1123,7 +1123,7 @@ button, input, textarea, select {
   transition: all var(--transition-normal);
   display: flex;
   align-items: center;
-  font-size: 1.1rem;
+  font-size: 0.98rem;
   font-weight: 500;
   color: var(--text-primary);
 }
@@ -1284,6 +1284,15 @@ button, input, textarea, select {
   white-space: pre-line;
   text-align: center;
   font-family: var(--font-body);
+}
+
+/* Noto Sans Tamil specific visual scale adjustments for modals */
+.ta-font-adjust .modal-title {
+  font-size: 1.3rem !important;
+}
+
+.ta-font-adjust .modal-lyrics-content {
+  font-size: 0.92rem !important;
 }
 
 /* ==========================================

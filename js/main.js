@@ -3710,6 +3710,15 @@ function openLyricsModal(title, lyrics) {
   if (modal && titleElem && lyricsElem) {
     titleElem.textContent = title;
     lyricsElem.innerHTML = lyrics.replace(/\n/g, '<br>');
+    
+    // Check if the lyrics or title contain Tamil characters (Unicode range 0B80-0BFF)
+    const hasTamil = /[\u0b80-\u0bff]/.test(title + lyrics);
+    if (hasTamil) {
+      modal.classList.add('ta-font-adjust');
+    } else {
+      modal.classList.remove('ta-font-adjust');
+    }
+    
     modal.classList.add('active');
     document.body.style.overflow = 'hidden'; // Lock background scroll
   }
