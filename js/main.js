@@ -3532,8 +3532,8 @@ function initSongbook() {
       return;
     }
 
-    // Render songs in list view for 'தமிழ்' script tab, and cards for other tabs
-    if (currentLanguage === 'tamil' && currentTamilSubpart === 'script') {
+    // Render songs in list view for Tamil songs (both script and transliterated), and cards for English songs
+    if (currentLanguage === 'tamil') {
       songListElement.style.display = 'flex';
       songListElement.style.flexDirection = 'column';
       songListElement.style.gap = '0';
@@ -3548,8 +3548,10 @@ function initSongbook() {
           cleanTitle = match[1];
         }
 
+        const prefix = currentTamilSubpart === 'script' ? `பாடல் #${song.id}` : `Song #${song.id}`;
+
         row.innerHTML = `
-          <span style="font-weight: 700; color: var(--color-accent); margin-right: 12px;">பாடல் #${song.id}</span>
+          <span style="font-weight: 700; color: var(--color-accent); margin-right: 12px;">${prefix}</span>
           <span>${cleanTitle}</span>
         `;
         row.addEventListener('click', () => openLyricsModal(song.title, song.lyrics));
