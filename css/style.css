@@ -1115,6 +1115,36 @@ button, input, textarea, select {
   box-shadow: var(--shadow-sm);
 }
 
+.song-list-row {
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.song-list-row:first-child {
+  border-top: 1px solid var(--border-color);
+  border-top-left-radius: var(--border-radius-sm);
+  border-top-right-radius: var(--border-radius-sm);
+}
+
+.song-list-row:last-child {
+  border-bottom-left-radius: var(--border-radius-sm);
+  border-bottom-right-radius: var(--border-radius-sm);
+}
+
+.song-list-row:hover {
+  background-color: var(--bg-secondary);
+  color: var(--color-accent);
+  padding-left: 28px;
+}
+
 .song-number {
   font-size: 0.8rem;
   font-weight: 700;

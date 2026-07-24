@@ -3532,19 +3532,48 @@ function initSongbook() {
       return;
     }
 
-    filteredSongs.forEach(song => {
-      const card = document.createElement('div');
-      card.className = 'song-card';
-      card.innerHTML = `
-        <div>
-          <div class="song-number">Song #${song.id}</div>
-          <h4 class="song-title">${song.title}</h4>
-          <p class="song-lyrics-preview">${song.lyrics.split('\n').slice(0, 3).join('<br>')}</p>
-        </div>
-      `;
-      card.addEventListener('click', () => openLyricsModal(song.title, song.lyrics));
-      songListElement.appendChild(card);
-    });
+    // Render songs in list view for 'தமிழ்' script tab, and cards for other tabs
+    if (currentLanguage === 'tamil' && currentTamilSubpart === 'script') {
+      songListElement.style.display = 'flex';
+      songListElement.style.flexDirection = 'column';
+      songListElement.style.gap = '0';
+
+      filteredSongs.forEach(song => {
+        const row = document.createElement('div');
+        row.className = 'song-list-row';
+        
+        let cleanTitle = song.title;
+        const match = song.title.match(/^\d+\.\s*(.*)/);
+        if (match) {
+          cleanTitle = match[1];
+        }
+
+        row.innerHTML = `
+          <span style="font-weight: 700; color: var(--color-accent); margin-right: 12px;">பாடல் #${song.id}</span>
+          <span>${cleanTitle}</span>
+        `;
+        row.addEventListener('click', () => openLyricsModal(song.title, song.lyrics));
+        songListElement.appendChild(row);
+      });
+    } else {
+      songListElement.style.display = 'grid';
+      songListElement.style.flexDirection = '';
+      songListElement.style.gap = '';
+
+      filteredSongs.forEach(song => {
+        const card = document.createElement('div');
+        card.className = 'song-card';
+        card.innerHTML = `
+          <div>
+            <div class="song-number">Song #${song.id}</div>
+            <h4 class="song-title">${song.title}</h4>
+            <p class="song-lyrics-preview">${song.lyrics.split('\n').slice(0, 3).join('<br>')}</p>
+          </div>
+        `;
+        card.addEventListener('click', () => openLyricsModal(song.title, song.lyrics));
+        songListElement.appendChild(card);
+      });
+    }
   }
 
   // Helper function to handle language selection and UI updates
