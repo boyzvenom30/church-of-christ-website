@@ -2421,3 +2421,53 @@ body, .header, .footer, .card, .contact-form-card, .login-card, .dashboard-card,
     margin-bottom: 40px;
   }
 }
+
+
+/* ==========================================
+   IMAGE-BASED LOGO STYLES (OPTION B)
+   ========================================== */
+.logo-img-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.logo-img {
+  height: 48px; /* Elegant navbar height */
+  width: auto;
+  object-fit: contain;
+  display: block;
+  transition: opacity var(--transition-fast);
+  /* Apply dark mode filter adjustments dynamically if needed */
+}
+
+/* Elegant light/dark filter for high readability */
+[data-theme="dark"] .logo-img {
+  filter: brightness(1.15) contrast(1.05);
+}
+
+.logo:hover .logo-img {
+  opacity: 0.85;
+}
+
+.logo-img-tagline {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.08em;
+  margin-top: 1px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .logo-img {
+    height: 38px; /* Slightly more compact on mobile */
+  }
+  .logo-img-tagline {
+    font-size: 0.58rem;
+    letter-spacing: 0.06em;
+  }
+}
