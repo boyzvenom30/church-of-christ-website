@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@300;400;500;600;700&display=swap');
 
 /* ==========================================
    CSS VARIABLES & DESIGN TOKENS
@@ -38,8 +38,8 @@
   --header-height: 80px;
   
   /* Fonts */
-  --font-headings: 'Outfit', sans-serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-headings: 'Outfit', 'Noto Sans Tamil', sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Noto Sans Tamil', sans-serif;
   
   /* Transition speed */
   --transition-fast: 0.2s ease;
