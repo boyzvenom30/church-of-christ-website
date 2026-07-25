@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initTabs();
   initSongbook();
+  initSongPage();
   initContactForm();
   initLoginPortal();
   initDashboard();
@@ -3566,7 +3567,7 @@ function initSongbook() {
           <span style="font-weight: 700; color: var(--color-accent); margin-right: 12px;">${prefix}</span>
           <span>${cleanTitle}</span>
         `;
-        row.addEventListener('click', () => openLyricsModal(song.title, song.lyrics));
+        row.addEventListener('click', () => openSongPage(song.id));
         songListElement.appendChild(row);
       });
     } else {
@@ -3584,14 +3585,14 @@ function initSongbook() {
             <p class="song-lyrics-preview">${song.lyrics.split('\n').slice(0, 3).join('<br>')}</p>
           </div>
         `;
-        card.addEventListener('click', () => openLyricsModal(song.title, song.lyrics));
+        card.addEventListener('click', () => openSongPage(song.id));
         songListElement.appendChild(card);
       });
     }
   }
 
   // Helper function to handle language selection and UI updates
-  function selectLanguage(lang) {
+  function selectLanguage(lang, resetSubpart = false) {
     if (languageTabsWrapper) {
       languageTabsWrapper.style.display = 'none';
     }
@@ -3620,10 +3621,11 @@ function initSongbook() {
       if (searchWrapper) searchWrapper.style.display = 'block';
       songListElement.style.display = 'grid';
       
-      // Reset subpart to default 'script' when clicking Tamil Songs
-      currentTamilSubpart = 'script';
+      if (resetSubpart) {
+        currentTamilSubpart = 'script';
+      }
       subpartBtns.forEach(b => {
-        if (b.getAttribute('data-subpart') === 'script') {
+        if (b.getAttribute('data-subpart') === currentTamilSubpart) {
           b.classList.add('active');
         } else {
           b.classList.remove('active');
@@ -3642,7 +3644,16 @@ function initSongbook() {
   langBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const lang = btn.getAttribute('data-lang');
-      selectLanguage(lang);
+      const newUrl = new URL(window.location.href);
+      newUrl.searchParams.set('lang', lang);
+      if (lang === 'english') {
+        newUrl.searchParams.delete('subpart');
+      } else {
+        newUrl.searchParams.set('subpart', currentTamilSubpart);
+      }
+      window.history.replaceState({}, '', newUrl);
+
+      selectLanguage(lang, true);
     });
   });
 
@@ -3653,18 +3664,42 @@ function initSongbook() {
       btn.classList.add('active');
 
       currentTamilSubpart = btn.getAttribute('data-subpart');
+      const newUrl = new URL(window.location.href);
+      newUrl.searchParams.set('subpart', currentTamilSubpart);
+      window.history.replaceState({}, '', newUrl);
+
       renderSongs();
     });
   });
 
-  // Handle live search input
-  searchInput.addEventListener('input', renderSongs);
+  // Handle live search input and update URL parameter dynamically
+  searchInput.addEventListener('input', () => {
+    const newUrl = new URL(window.location.href);
+    const searchVal = searchInput.value.trim();
+    if (searchVal) {
+      newUrl.searchParams.set('search', searchVal);
+    } else {
+      newUrl.searchParams.delete('search');
+    }
+    window.history.replaceState({}, '', newUrl);
+
+    renderSongs();
+  });
 
   // Handle URL query parameter pre-selection on page load
   const urlParams = new URLSearchParams(window.location.search);
   const langParam = urlParams.get('lang');
+  const subpartParam = urlParams.get('subpart');
+  const searchParam = urlParams.get('search');
+
   if (langParam === 'tamil' || langParam === 'english') {
-    selectLanguage(langParam);
+    if (langParam === 'tamil' && (subpartParam === 'script' || subpartParam === 'romanized')) {
+      currentTamilSubpart = subpartParam;
+    }
+    if (searchParam) {
+      searchInput.value = decodeURIComponent(searchParam);
+    }
+    selectLanguage(langParam, false);
   } else {
     // Initial state on page load (if no param): hide subparts, search box, and list
     const searchWrapper = searchInput.closest('.search-box-wrapper');
@@ -4195,6 +4230,168 @@ function initGallery() {
       }
     });
   }
+}
+
+/* ==========================================
+   DEDICATED SONG DETAIL PAGE LOGIC
+   ========================================== */
+function openSongPage(songId) {
+  const searchInput = document.getElementById('song-search');
+  const searchVal = searchInput ? searchInput.value.trim() : '';
+  window.location.href = `song.html?id=${songId}&lang=${currentLanguage}&subpart=${currentTamilSubpart}&search=${encodeURIComponent(searchVal)}`;
+}
+
+function initSongPage() {
+  const songContainer = document.getElementById('song-detail-container');
+  if (!songContainer) return;
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const songId = parseInt(urlParams.get('id'), 10);
+  let lang = urlParams.get('lang') || 'english';
+  let subpart = urlParams.get('subpart') || 'script';
+  const searchVal = urlParams.get('search') || '';
+
+  if (isNaN(songId)) {
+    window.location.href = 'songbook.html';
+    return;
+  }
+
+  // Find the song array based on language
+  let songsArray = [];
+  if (lang === 'english') {
+    songsArray = SONGBOOK_DATA.english;
+  } else {
+    songsArray = SONGBOOK_DATA.tamil.script;
+  }
+
+  const song = songsArray.find(s => s.id === songId);
+  if (!song) {
+    window.location.href = 'songbook.html';
+    return;
+  }
+
+  // Set up back button link with search query state preserved
+  const backBtn = document.getElementById('back-to-songbook');
+  if (backBtn) {
+    backBtn.href = `songbook.html?lang=${lang}&subpart=${subpart}&search=${encodeURIComponent(searchVal)}`;
+  }
+
+  const titleElem = document.getElementById('song-detail-title');
+  const lyricsElem = document.getElementById('song-detail-lyrics');
+  const badgeElem = document.getElementById('song-detail-badge');
+  const numberElem = document.getElementById('song-detail-number');
+
+  // Next and Previous sequential song limits
+  const totalSongs = songsArray.length;
+  const prevId = songId > 1 ? songId - 1 : totalSongs;
+  const nextId = songId < totalSongs ? songId + 1 : 1;
+
+  const prevBtn = document.getElementById('prev-song-btn');
+  const nextBtn = document.getElementById('next-song-btn');
+
+  if (prevBtn) {
+    prevBtn.href = `song.html?id=${prevId}&lang=${lang}&subpart=${subpart}&search=${encodeURIComponent(searchVal)}`;
+  }
+  if (nextBtn) {
+    nextBtn.href = `song.html?id=${nextId}&lang=${lang}&subpart=${subpart}&search=${encodeURIComponent(searchVal)}`;
+  }
+
+  function renderSongContent() {
+    let titleText = '';
+    let lyricsText = '';
+
+    if (lang === 'tamil') {
+      badgeElem.textContent = 'தமிழ் பாடல்';
+      numberElem.textContent = `பாடல் #${songId}`;
+      
+      if (subpart === 'script') {
+        titleText = song.title;
+        lyricsText = song.lyrics;
+      } else {
+        // Transliterated
+        const translitSong = SONGBOOK_DATA.tamil.romanized.find(s => s.id === songId);
+        if (translitSong) {
+          titleText = translitSong.title;
+          lyricsText = translitSong.lyrics;
+        } else {
+          titleText = song.title;
+          lyricsText = song.lyrics;
+        }
+      }
+    } else {
+      badgeElem.textContent = 'English Song';
+      numberElem.textContent = `Song #${songId}`;
+      titleText = song.title;
+      lyricsText = song.lyrics;
+    }
+
+    titleElem.textContent = titleText;
+    lyricsElem.innerHTML = lyricsText.replace(/\n/g, '<br>');
+
+    // Apply Tamil font adjustment for script
+    if (lang === 'tamil' && subpart === 'script') {
+      songContainer.classList.add('ta-font-adjust');
+    } else {
+      songContainer.classList.remove('ta-font-adjust');
+    }
+
+    // Set page tab title
+    document.title = `Church of Christ - Song #${songId}: ${titleText}`;
+  }
+
+  // Handle Tamil subpart Script vs Transliterate toggles
+  const scriptToggleWrapper = document.getElementById('song-script-toggle-wrapper');
+  if (lang === 'tamil') {
+    if (scriptToggleWrapper) {
+      scriptToggleWrapper.style.display = 'flex';
+      const btnScript = document.getElementById('btn-script-tamil');
+      const btnRomanized = document.getElementById('btn-script-romanized');
+
+      const updateActiveScriptBtn = () => {
+        if (subpart === 'script') {
+          btnScript.classList.add('active');
+          btnRomanized.classList.remove('active');
+        } else {
+          btnScript.classList.remove('active');
+          btnRomanized.classList.add('active');
+        }
+      };
+
+      updateActiveScriptBtn();
+
+      btnScript.addEventListener('click', () => {
+        subpart = 'script';
+        updateActiveScriptBtn();
+        const newUrl = new URL(window.location.href);
+        newUrl.searchParams.set('subpart', 'script');
+        window.history.replaceState({}, '', newUrl);
+        
+        if (prevBtn) prevBtn.href = `song.html?id=${prevId}&lang=${lang}&subpart=script&search=${encodeURIComponent(searchVal)}`;
+        if (nextBtn) nextBtn.href = `song.html?id=${nextId}&lang=${lang}&subpart=script&search=${encodeURIComponent(searchVal)}`;
+        if (backBtn) backBtn.href = `songbook.html?lang=${lang}&subpart=script&search=${encodeURIComponent(searchVal)}`;
+        
+        renderSongContent();
+      });
+
+      btnRomanized.addEventListener('click', () => {
+        subpart = 'romanized';
+        updateActiveScriptBtn();
+        const newUrl = new URL(window.location.href);
+        newUrl.searchParams.set('subpart', 'romanized');
+        window.history.replaceState({}, '', newUrl);
+        
+        if (prevBtn) prevBtn.href = `song.html?id=${prevId}&lang=${lang}&subpart=romanized&search=${encodeURIComponent(searchVal)}`;
+        if (nextBtn) nextBtn.href = `song.html?id=${nextId}&lang=${lang}&subpart=romanized&search=${encodeURIComponent(searchVal)}`;
+        if (backBtn) backBtn.href = `songbook.html?lang=${lang}&subpart=romanized&search=${encodeURIComponent(searchVal)}`;
+        
+        renderSongContent();
+      });
+    }
+  } else {
+    if (scriptToggleWrapper) scriptToggleWrapper.style.display = 'none';
+  }
+
+  renderSongContent();
 }
 
 

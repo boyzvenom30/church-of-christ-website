@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Church of Christ - Song Lyrics</title>
+  <meta name="description" content="View song lyrics with custom font support, easy language switching, and step-by-step hymnal navigation.">
+  <link rel="stylesheet" href="css/style.css?v=1.3">
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
+</head>
+<body class="fade-in">
+
+  <!-- GLOBAL HEADER -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo-wrapper">
+        <a href="index.html" class="logo" id="header-logo">
+          <div class="logo-img-wrapper">
+            <img src="images/logo.png?v=1.3" alt="Church of Christ" class="logo-img">
+            <span class="logo-img-tagline">Kumaran Nagar, Chennai</span>
+          </div>
+        </a>
+      </div>
+      
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="sundayschool.html" class="nav-link">Sunday School</a></li>
+        <li><a href="media.html" class="nav-link">Media</a></li>
+        <li class="nav-item-dropdown">
+          <a href="javascript:void(0)" class="nav-link active" style="cursor: default;">Song Book</a>
+          <ul class="dropdown-menu">
+            <li><a href="songbook.html?lang=tamil" class="dropdown-item">Tamil Songs</a></li>
+            <li><a href="songbook.html?lang=english" class="dropdown-item">English Songs</a></li>
+          </ul>
+        </li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        <li class="nav-live-wrapper" style="margin-left: 10px;"><a href="live.html" class="nav-link nav-link-live"><span class="live-dot-pulse"></span>Watch Live</a></li>
+        <li class="nav-btn mobile-only"><a href="login.html" class="btn btn-secondary btn-sm" id="member-portal-nav-btn-mobile">Member Portal</a></li>
+      </ul>
+      
+      <div class="nav-right-area">
+        <div class="nav-action desktop-only">
+          <a href="login.html" class="btn btn-secondary btn-sm" id="member-portal-nav-btn">Member Portal</a>
+        </div>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <svg class="theme-icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+          <svg class="theme-icon-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+          </svg>
+        </button>
+        <button class="mobile-toggle" aria-label="Toggle menu" id="menu-toggle-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- SONG SECTION -->
+  <section class="section" style="padding: 60px 0;">
+    <div class="container" style="max-width: 800px;">
+      
+      <!-- Controls Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+        <a href="songbook.html" id="back-to-songbook" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 8px;">
+          <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          Back to Song Book
+        </a>
+        
+        <!-- Script Toggle wrapper for Tamil script vs transliteration -->
+        <div id="song-script-toggle-wrapper" class="subpart-toggles" style="display: none;">
+          <button class="subpart-btn active" id="btn-script-tamil">தமிழ்</button>
+          <button class="subpart-btn" id="btn-script-romanized">Tamil</button>
+        </div>
+      </div>
+
+      <!-- Song Lyrics Display -->
+      <div class="card" id="song-detail-container" style="padding: 40px; margin-bottom: 30px; border: 1px solid var(--border-color); background-color: var(--bg-primary); border-radius: var(--border-radius-md); box-shadow: var(--shadow-sm);">
+        <div class="song-header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <span class="badge" id="song-detail-badge" style="margin-bottom: 8px;">Song Book</span>
+            <h2 id="song-detail-title" style="margin: 0; font-size: 1.85rem; line-height: 1.25;">Loading Song...</h2>
+          </div>
+          <div id="song-detail-number" style="font-size: 0.95rem; font-weight: 700; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; padding-top: 4px;">Song #0</div>
+        </div>
+        
+        <!-- Lyrics Text -->
+        <div id="song-detail-lyrics" class="modal-lyrics-content" style="text-align: left; font-size: 1.05rem; line-height: 1.85; color: var(--text-primary); white-space: pre-wrap;"></div>
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px;">
+        <a href="#" id="prev-song-btn" class="btn btn-secondary" style="flex: 1; text-align: center; font-size: 0.9rem;">&larr; Previous Song</a>
+        <a href="#" id="next-song-btn" class="btn btn-secondary" style="flex: 1; text-align: center; font-size: 0.9rem;">Next Song &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <a href="index.html" class="footer-logo">
+          Church of Christ
+          <span class="footer-logo-tagline">Kumaran Nagar, Chennai</span>
+        </a>
+        <p>A congregation established directly from the scriptures, serving Kumaran Nagar and surrounding communities.</p>
+      </div>
+      
+      <div>
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="sundayschool.html">Sunday School</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Resources</h4>
+        <ul class="footer-links">
+          <li><a href="media.html">Media & Resources</a></li>
+          <li><a href="songbook.html">Song Book</a></li>
+          <li><a href="live.html">Watch Live</a></li>
+          <li><a href="login.html">Portal Login</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Contact Us</h4>
+        <ul class="footer-contact-info">
+          <li>
+            <div class="footer-contact-icon-wrapper">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <span>No. 58, Church Street, Kumaran Nagar, Chennai - 600082</span>
+          </li>
+          <li>
+            <div class="footer-contact-icon-wrapper">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8m-2 11a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h12a2 2 0 012 2v11z"></path>
+              </svg>
+            </div>
+            <span>info@churchofchrist-kn.com</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Church of Christ, Kumaran Nagar. All Rights Reserved.</p>
+      <p>Design: Restored NT Pattern</p>
+    </div>
+  </footer>
+
+  <!-- FLOATING SCHEDULE WIDGET BUTTON -->
+  <button class="floating-schedule-btn" id="floating-schedule-btn" aria-label="View Service Timings">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+    </svg>
+    Schedule
+  </button>
+
+  <!-- WIDGET DRAWER OVERLAY -->
+  <div id="schedule-drawer-overlay" class="schedule-drawer-overlay"></div>
+
+  <!-- WIDGET DRAWER PANEL -->
+  <div id="schedule-drawer" class="schedule-drawer">
+    <div class="schedule-drawer-header">
+      <h3>Service Timings</h3>
+      <button id="schedule-drawer-close" class="schedule-drawer-close" aria-label="Close Panel">&times;</button>
+    </div>
+    <div class="schedule-drawer-body">
+      <div class="schedule-drawer-group">
+        <h4>Sunday Worship</h4>
+        <div class="schedule-drawer-item">
+          <span class="time">5:00 AM – 6:00 AM</span>
+          <span class="desc">English Worship</span>
+        </div>
+        <div class="schedule-drawer-item">
+          <span class="time">8:00 AM – 9:30 AM</span>
+          <span class="desc">Tamil Worship</span>
+        </div>
+        <div class="schedule-drawer-item">
+          <span class="time">10:00 AM – 11:30 AM</span>
+          <span class="desc">Mizo Worship</span>
+        </div>
+        <div class="schedule-drawer-item">
+          <span class="time">10:30 AM – 12:00 PM</span>
+          <span class="desc">Telugu Worship</span>
+        </div>
+        <div class="schedule-drawer-item">
+          <span class="time">6:00 PM – 7:30 PM</span>
+          <span class="desc">English Worship (with Tamil translation)</span>
+        </div>
+      </div>
+      <div class="schedule-drawer-group">
+        <h4>Wednesday Bible Class</h4>
+        <div class="schedule-drawer-item">
+          <span class="time">6:30 PM – 7:30 PM</span>
+          <span class="desc">Weekly Bible Study & Prayer</span>
+        </div>
+      </div>
+      <div class="schedule-drawer-group">
+        <h4>Friday Prayer Meeting</h4>
+        <div class="schedule-drawer-item">
+          <span class="time">10:00 AM – 12:00 PM</span>
+          <span class="desc">Women's Prayer Meeting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const btn = document.getElementById('floating-schedule-btn');
+      const drawer = document.getElementById('schedule-drawer');
+      const overlay = document.getElementById('schedule-drawer-overlay');
+      const closeBtn = document.getElementById('schedule-drawer-close');
+
+      function openDrawer() {
+        if (drawer) drawer.classList.add('open');
+        if (overlay) overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer() {
+        if (drawer) drawer.classList.remove('open');
+        if (overlay) overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      if (btn && drawer && overlay && closeBtn) {
+        btn.addEventListener('click', openDrawer);
+        closeBtn.addEventListener('click', closeDrawer);
+        overlay.addEventListener('click', closeDrawer);
+      }
+    });
+  </script>
+
+  <script src="js/main.js?v=1.3"></script>
+</body>
+</html>
