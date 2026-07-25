@@ -2325,6 +2325,29 @@ body, .header, .footer, .card, .contact-form-card, .login-card, .dashboard-card,
   .contact-form-card {
     padding: 24px 16px !important;
   }
+
+  /* Immersive Full-Bleed Layouts for Song Pages on Mobile */
+  #song-detail-container {
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    width: calc(100% + 32px) !important;
+    padding: 30px 16px !important;
+    background-color: var(--bg-primary) !important;
+  }
+
+  .songbook-container {
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    width: calc(100% + 32px) !important;
+    padding: 24px 12px !important;
+    background-color: var(--bg-secondary) !important;
+  }
 }
 
 
