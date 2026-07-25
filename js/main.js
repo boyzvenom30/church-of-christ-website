@@ -3561,10 +3561,12 @@ function initSongbook() {
           cleanTitle = match[1];
         }
 
-        const prefix = currentTamilSubpart === 'script' ? `பாடல் #${song.id}` : `Song #${song.id}`;
+        const prefixText = currentTamilSubpart === 'script' ? 'பாடல் #' : 'Song #';
 
         row.innerHTML = `
-          <span style="font-weight: 700; color: var(--color-accent); margin-right: 12px;">${prefix}</span>
+          <span style="font-weight: 700; color: var(--color-accent); margin-right: 12px;">
+            <span class="song-prefix-text">${prefixText}</span>${song.id}
+          </span>
           <span>${cleanTitle}</span>
         `;
         row.addEventListener('click', () => openSongPage(song.id));
@@ -3580,7 +3582,7 @@ function initSongbook() {
         card.className = 'song-card';
         card.innerHTML = `
           <div>
-            <div class="song-number">Song #${song.id}</div>
+            <div class="song-number"><span class="song-prefix-text">Song #</span>${song.id}</div>
             <h4 class="song-title">${song.title}</h4>
             <p class="song-lyrics-preview">${song.lyrics.split('\n').slice(0, 3).join('<br>')}</p>
           </div>

@@ -2348,6 +2348,11 @@ body, .header, .footer, .card, .contact-form-card, .login-card, .dashboard-card,
     padding: 24px 12px !important;
     background-color: var(--bg-secondary) !important;
   }
+
+  /* Hide song prefix labels (பாடல் # / Song #) on mobile */
+  .song-prefix-text {
+    display: none !important;
+  }
 }
 
 
