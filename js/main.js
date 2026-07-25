@@ -43,6 +43,7 @@ function initMobileNav() {
     toggleBtn.addEventListener('click', () => {
       toggleBtn.classList.toggle('active');
       navMenu.classList.toggle('active');
+      document.body.classList.toggle('nav-open');
     });
 
     // Close menu when clicking nav links
@@ -50,6 +51,7 @@ function initMobileNav() {
       link.addEventListener('click', () => {
         toggleBtn.classList.remove('active');
         navMenu.classList.remove('active');
+        document.body.classList.remove('nav-open');
       });
     });
   }

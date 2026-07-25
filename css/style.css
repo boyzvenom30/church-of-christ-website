@@ -70,6 +70,12 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body.nav-open {
+  overflow: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -160,9 +166,9 @@ button, input, textarea, select {
   gap: 30px;
 }
 
-.grid-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-.grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-.grid-4 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
 
 /* ==========================================
    BUTTONS
@@ -781,6 +787,7 @@ button, input, textarea, select {
 .tabs-nav {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 16px;
   list-style: none;
   margin-bottom: 40px;
@@ -1006,6 +1013,7 @@ button, input, textarea, select {
 
 .language-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
@@ -1029,6 +1037,7 @@ button, input, textarea, select {
 
 .subpart-toggles {
   display: flex;
+  flex-wrap: wrap;
   background-color: var(--bg-tertiary);
   border-radius: 20px;
   padding: 4px;
@@ -2307,6 +2316,14 @@ body, .header, .footer, .card, .contact-form-card, .login-card, .dashboard-card,
   /* Adjust grid gap slightly */
   .grid {
     gap: 16px !important;
+  }
+
+  /* Scale down card and form paddings on small viewports */
+  .login-card {
+    padding: 32px 20px !important;
+  }
+  .contact-form-card {
+    padding: 24px 16px !important;
   }
 }
 
