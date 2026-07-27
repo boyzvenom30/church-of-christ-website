@@ -45,6 +45,7 @@
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --text-watermark: rgba(128, 0, 0, 0.045);
 }
 
 /* ==========================================
@@ -233,6 +234,33 @@ button, input, textarea, select {
   z-index: 100;
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.header::before {
+  content: "The Churches of Christ greet you. — Romans 16:16";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-headings);
+  font-size: clamp(1.4rem, 4.2vw, 3rem);
+  font-weight: 700;
+  font-style: italic;
+  white-space: nowrap;
+  color: var(--text-watermark);
+  pointer-events: none;
+  user-select: none;
+  z-index: 1; /* Under nav contents but above background blur/backdrop */
+  letter-spacing: -0.015em;
+  transition: all var(--transition-normal);
+}
+
+@media (max-width: 768px) {
+  .header::before {
+    font-size: 1.1rem !important;
+    content: "The Churches of Christ greet you." !important;
+  }
 }
 
 .header .container {
@@ -381,6 +409,8 @@ button, input, textarea, select {
     justify-content: center !important;
     width: 100% !important;
     flex-shrink: 0;
+    position: relative !important;
+    z-index: 2 !important;
   }
   
   .logo-img {
@@ -400,6 +430,8 @@ button, input, textarea, select {
     display: flex !important;
     width: auto !important;
     gap: 24px !important;
+    position: relative !important;
+    z-index: 2 !important;
   }
   
   .nav-right-area {
@@ -409,6 +441,8 @@ button, input, textarea, select {
     align-items: center !important;
     gap: 20px !important;
     margin: 0 !important;
+    position: relative !important;
+    z-index: 2 !important;
   }
   
   .nav-action.desktop-only {
@@ -1993,6 +2027,7 @@ button, input, textarea, select {
   --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+  --text-watermark: rgba(255, 255, 255, 0.02);
 }
 
 /* Global Transition for Theme Switching */
