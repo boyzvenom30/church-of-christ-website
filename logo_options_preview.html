@@ -156,6 +156,37 @@
     body.opt-branded-headers .section-tertiary {
       padding: 50px 0 30px 0 !important;
     }
+
+    /* OPTION 5: STACKED CENTERED HEADER (LOGO ABOVE MENU) */
+    body.opt-stacked-header .header {
+      height: auto !important;
+      padding: 24px 0 !important;
+    }
+    body.opt-stacked-header .nav-container {
+      flex-direction: column !important;
+      gap: 20px !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    body.opt-stacked-header .logo-wrapper {
+      justify-content: center !important;
+      width: 100% !important;
+    }
+    body.opt-stacked-header .logo-img {
+      height: 60px !important;
+      margin: 0 auto !important;
+    }
+    body.opt-stacked-header .logo-img-wrapper {
+      align-items: center !important;
+    }
+    body.opt-stacked-header .nav-menu {
+      width: 100% !important;
+      justify-content: center !important;
+      gap: 24px !important;
+    }
+    body.opt-stacked-header .section-tertiary {
+      margin-top: 0 !important;
+    }
   </style>
 </head>
 <body>
@@ -272,6 +303,18 @@
           </p>
           <button class="preview-btn">Preview Option 4</button>
         </div>
+
+        <!-- OPTION 5 CARD (STACKED) -->
+        <div class="preview-option-card" onclick="setOption('stacked')">
+          <h3>
+            5. Stacked Header Layout
+            <span class="badge-active">Active</span>
+          </h3>
+          <p>
+            Plugs the "Church of Christ" logo into a centered position directly **above the navigation links**. The menu links flow neatly in a centered row below it, creating a very classic, balanced, and authoritative cathedral/church layout.
+          </p>
+          <button class="preview-btn">Preview Option 5</button>
+        </div>
       </div>
     </div>
 
@@ -303,7 +346,7 @@
   <script>
     function setOption(opt) {
       // Remove all option classes from body
-      document.body.classList.remove('opt-enlarged-logo', 'opt-top-ribbon', 'opt-branded-headers');
+      document.body.classList.remove('opt-enlarged-logo', 'opt-top-ribbon', 'opt-branded-headers', 'opt-stacked-header');
       
       // Remove active class from all cards
       const cards = document.querySelectorAll('.preview-option-card');
@@ -315,6 +358,7 @@
       else if (opt === 'ribbon') targetIndex = 2;
       else if (opt === 'headers') targetIndex = 3;
       else if (opt === 'maximum') targetIndex = 4;
+      else if (opt === 'stacked') targetIndex = 5;
       
       cards[targetIndex].classList.add('active');
       
@@ -327,6 +371,8 @@
         document.body.classList.add('opt-branded-headers');
       } else if (opt === 'maximum') {
         document.body.classList.add('opt-enlarged-logo', 'opt-top-ribbon');
+      } else if (opt === 'stacked') {
+        document.body.classList.add('opt-stacked-header');
       }
     }
   </script>
