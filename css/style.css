@@ -2608,7 +2608,10 @@ body, .header, .footer, .card, .contact-form-card, .login-card, .dashboard-card,
 }
 
 @media (max-width: 768px) {
+  :root {
+    --header-height: 100px;
+  }
   .logo-img {
-    height: 54px; /* Enlarged on mobile for better legibility */
+    height: 80px !important;
   }
 }
