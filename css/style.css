@@ -2609,10 +2609,6 @@ body, .header, .footer, .card, .contact-form-card, .login-card, .dashboard-card,
 
 @media (max-width: 768px) {
   .logo-img {
-    height: 38px; /* Slightly more compact on mobile */
-  }
-  .logo-img-tagline {
-    font-size: 0.58rem;
-    letter-spacing: 0.06em;
+    height: 54px; /* Enlarged on mobile for better legibility */
   }
 }
