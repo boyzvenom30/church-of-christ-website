@@ -24,12 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
    THEME TOGGLE (LIGHT & DARK MODE)
    ========================================== */
 function initThemeToggle() {
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  if (!themeToggleBtn) return;
-
-  themeToggleBtn.addEventListener('click', () => {
-    const isDark = document.documentElement.classList.toggle('dark-theme');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
+  themeToggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark-theme');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
   });
 }
 

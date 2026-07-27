@@ -380,6 +380,10 @@ button, input, textarea, select {
 }
 
 @media (max-width: 1024px) {
+  #theme-toggle {
+    display: none !important;
+  }
+
   .mobile-only {
     display: block !important;
   }
@@ -2607,7 +2611,7 @@ body, .header, .footer, .card, .contact-form-card, .login-card, .dashboard-card,
   display: none !important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   :root {
     --header-height: 120px;
   }
