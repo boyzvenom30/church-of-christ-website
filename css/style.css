@@ -8,7 +8,7 @@
   --bg-primary: #ffffff;         /* Crisp pure white */
   --bg-secondary: #fdfbf7;       /* Soft warm ivory / cream */
   --bg-tertiary: #f6f3eb;        /* Soft warm sand */
-  --bg-overlay: rgba(255, 255, 255, 0.85); /* For glassmorphism */
+  --bg-overlay: rgba(255, 255, 255, 0.7); /* For glassmorphism */
   
   /* Typography Colors */
   --text-primary: #3a322c;       /* Rich, warm bronze/charcoal for headings */
@@ -228,9 +228,10 @@ button, input, textarea, select {
   width: 100%;
   height: var(--header-height);
   background-color: var(--bg-overlay);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(128, 120, 110, 0.15); /* Translucent glass border */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.04); /* Ambient glass depth */
   z-index: 100;
   display: flex;
   align-items: center;
@@ -2011,7 +2012,7 @@ button, input, textarea, select {
   --bg-primary: #121210;         /* Deep, rich dark charcoal/black */
   --bg-secondary: #1c1a16;       /* Deep warm chocolate-black */
   --bg-tertiary: #25221d;        /* Slightly lighter warm gray for cards */
-  --bg-overlay: rgba(18, 18, 16, 0.85); /* For glassmorphic headers */
+  --bg-overlay: rgba(18, 18, 16, 0.7); /* For glassmorphic headers */
   
   --text-primary: #f3ede4;       /* Soft warm cream for headings */
   --text-secondary: #beb2a6;     /* Muted warm sand/taupe for body text */
