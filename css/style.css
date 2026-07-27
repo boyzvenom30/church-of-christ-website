@@ -382,7 +382,7 @@ button, input, textarea, select {
   }
   
   .logo-img {
-    height: 80px !important; /* Enlarged by 33% */
+    height: 110px !important; /* Enlarged by 30% further */
     margin: 0 auto !important;
   }
   
@@ -2570,14 +2570,7 @@ body, .header, .footer, .card, .contact-form-card, .login-card, .dashboard-card,
 }
 
 .logo-img-tagline {
-  font-family: var(--font-body);
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: var(--color-accent);
-  letter-spacing: 0.08em;
-  margin-top: 1px;
-  text-transform: uppercase;
-  line-height: 1;
+  display: none !important;
 }
 
 @media (max-width: 768px) {
