@@ -3968,8 +3968,8 @@ function initYouTubeFeeds() {
 function loadChannelFeed(channelId, gridElement, fallbackData) {
   if (!gridElement) return;
 
-  const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
-  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+  const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}&t=${Date.now()}`;
+  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&_=${Date.now()}`;
 
   fetch(apiUrl)
     .then(res => res.json())
