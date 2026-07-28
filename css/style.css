@@ -2613,9 +2613,9 @@ body, .header, .footer, .card, .contact-form-card, .login-card, .dashboard-card,
 
 @media (max-width: 1024px) {
   :root {
-    --header-height: 120px;
+    --header-height: 110px;
   }
   .logo-img {
-    height: 100px !important;
+    height: 90px !important;
   }
 }
